@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Top画面
+  root "pages#top"
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  # カレンダー
+  get "/calendar", to: "calendar#index"
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # 街のおすすめ情報
+  get "/recommendations", to: "recommendations#index"
+  post "/recommendations/:id/like", to: "recommendations#like", as: :like_recommendation
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # 不満送信
+  get  "/complaints/new", to: "complaints#new"
+  post "/complaints",    to: "complaints#create"
+
+  # AI機能
+  get  "/ai", to: "ai#index"
+  post "/ai/ask", to: "ai#ask"
 end
