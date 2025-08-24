@@ -1,0 +1,147 @@
+<!-- 投稿一覧 -->
+<div id="posts-container">
+  <!-- 投稿1 -->
+  <div class="post-card card rounded-4 shadow-sm p-3 mb-3 bg-white" data-category="food">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="category-tag category-food">グルメ</span>
+      <small class="text-muted">2時間前</small>
+    </div>
+    <h6 class="fw-bold mb-2">スーパー木村のお惣菜が激安！</h6>
+    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=200&fit=crop" alt="お惣菜" class="post-image">
+    <p class="mb-2">夕方5時以降に行くと、お惣菜が半額になります。唐揚げとコロッケが特におすすめ！品質も良くてコスパ最高です🍗</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">📍 スーパー木村 本店</small>
+      <button class="like-btn" onclick="toggleLike(this)" data-likes="12">
+        <span class="material-icons">❤️</span>
+        <span class="like-count">12</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 投稿2 -->
+  <div class="post-card card rounded-4 shadow-sm p-3 mb-3 bg-white" data-category="shop">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="category-tag category-shop">ショップ</span>
+      <small class="text-muted">5時間前</small>
+    </div>
+    <h6 class="fw-bold mb-2">新しいカフェがオープン！</h6>
+    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=200&fit=crop" alt="カフェ" class="post-image">
+    <p class="mb-2">富岡製糸場近くに「カフェ・シルク」がオープンしました。コーヒーが美味しくて、製糸場見学の後の休憩にピッタリです☕</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">📍 カフェ・シルク</small>
+      <button class="like-btn liked" onclick="toggleLike(this)" data-likes="23">
+        <span class="material-icons">❤️</span>
+        <span class="like-count">23</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 投稿3 -->
+  <div class="post-card card rounded-4 shadow-sm p-3 mb-3 bg-white" data-category="event">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="category-tag category-event">イベント</span>
+      <small class="text-muted">1日前</small>
+    </div>
+    <h6 class="fw-bold mb-2">富岡夏祭り開催中！</h6>
+    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=200&fit=crop" alt="夏祭り" class="post-image">
+    <p class="mb-2">今週末まで富岡駅前で夏祭りやってます！焼きそばとかき氷が絶品。子供向けの射的もあって家族連れにおすすめ🎪</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">📍 富岡駅前広場</small>
+      <button class="like-btn" onclick="toggleLike(this)" data-likes="45">
+        <span class="material-icons">🤍</span>
+        <span class="like-count">45</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 投稿4 -->
+  <div class="post-card card rounded-4 shadow-sm p-3 mb-3 bg-white" data-category="info">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="category-tag category-info">生活情報</span>
+      <small class="text-muted">3日前</small>
+    </div>
+    <h6 class="fw-bold mb-2">図書館の夏休み延長開館</h6>
+    <p class="mb-2">富岡市立図書館が夏休み期間中、平日は20時まで開館してます。学生の勉強場所としても利用できて静かで快適です📚</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">📍 富岡市立図書館</small>
+      <button class="like-btn" onclick="toggleLike(this)" data-likes="8">
+        <span class="material-icons">🤍</span>
+        <span class="like-count">8</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 投稿5 -->
+  <div class="post-card card rounded-4 shadow-sm p-3 mb-3 bg-white" data-category="food">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <span class="category-tag category-food">グルメ</span>
+      <small class="text-muted">1週間前</small>
+    </div>
+    <h6 class="fw-bold mb-2">下仁田ねぎラーメンが絶品！</h6>
+    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=200&fit=crop" alt="ラーメン" class="post-image">
+    <p class="mb-2">「麺屋 上州」の下仁田ねぎラーメンが本当に美味しいです！地元の野菜をたっぷり使っていて、スープも絶品🍜</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <small class="text-muted">📍 麺屋 上州</small>
+      <button class="like-btn" onclick="toggleLike(this)" data-likes="31">
+        <span class="material-icons">🤍</span>
+        <span class="like-count">31</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 空白スペース -->
+<div class="my-5"></div>
+</div>
+
+<!-- 新規投稿ボタン -->
+<button class="floating-add-btn" data-bs-toggle="modal" data-bs-target="#newPostModal">
+  <span class="material-icons" style="font-size: 24px;">add</span>
+</button>
+
+<!-- 新規投稿モーダル -->
+<div class="modal fade" id="newPostModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">新しいおすすめを投稿</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="newPostForm">
+          <div class="mb-3">
+            <label class="form-label">カテゴリ</label>
+            <select class="form-select" required>
+              <option value="">カテゴリを選択してください</option>
+              <option value="food">グルメ</option>
+              <option value="shop">ショップ</option>
+              <option value="event">イベント</option>
+              <option value="info">生活情報</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">タイトル</label>
+            <input type="text" class="form-control" placeholder="おすすめのタイトルを入力" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">詳細</label>
+            <textarea class="form-control" rows="4" placeholder="詳しい情報を教えてください" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">画像（任意）</label>
+            <input type="file" class="form-control" accept="image/*">
+            <small class="form-text text-muted">JPEGまたはPNG形式の画像をアップロードできます</small>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">場所（任意）</label>
+            <input type="text" class="form-control" placeholder="店名・場所など">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+        <button type="button" class="btn btn-primary" onclick="submitPost()">投稿する</button>
+      </div>
+    </div>
+  </div>
+</div>
