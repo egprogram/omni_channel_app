@@ -1,0 +1,239 @@
+<!-- メインコンテンツ -->
+<div style="padding-top: 56px;">
+  <!-- フォーム画面 -->
+  <div id="formScreen">
+    <!-- ヒーローセクション -->
+    <div class="hero-section text-center">
+      <div class="container">
+        <div class="mb-3">
+          <span class="material-icons" style="font-size: 4rem; color: #ffd700;">psychology</span>
+        </div>
+        <h1 class="display-6 fw-bold mb-3">富岡の賢者</h1>
+        <p class="lead mb-0">あなたが富岡の賢者になって世直し</p>
+        <p class="mb-0">市政への不満や改善提案をお聞かせください</p>
+      </div>
+    </div>
+
+    <!-- 不満投稿フォーム -->
+    <div class="complaint-form">
+      <form id="complaintForm">
+        <!-- カテゴリー選択 -->
+        <div class="mb-4">
+          <label class="form-label fw-bold mb-3">
+            <span class="material-icons align-middle me-2">category</span>
+            不満のカテゴリー（複数選択可）
+          </label>
+          <div id="categories">
+            <span class="category-chip" data-category="traffic">交通・道路</span>
+            <span class="category-chip" data-category="environment">環境・ゴミ</span>
+            <span class="category-chip" data-category="welfare">福祉・医療</span>
+            <span class="category-chip" data-category="education">教育・子育て</span>
+            <span class="category-chip" data-category="facility">公共施設</span>
+            <span class="category-chip" data-category="tax">税金・手続き</span>
+            <span class="category-chip" data-category="safety">安全・防犯</span>
+            <span class="category-chip" data-category="other">その他</span>
+          </div>
+        </div>
+
+        <!-- 緊急度 -->
+        <div class="mb-4">
+          <label class="form-label fw-bold mb-3">
+            <span class="material-icons align-middle me-2">priority_high</span>
+            緊急度
+          </label>
+          <div class="priority-radio priority-high">
+            <input type="radio" id="priority-high" name="priority" value="high">
+            <label for="priority-high">
+              <span class="material-icons me-2 text-danger">warning</span>
+              <div>
+                <strong>緊急</strong>
+                <small class="d-block text-muted">すぐに対応が必要</small>
+              </div>
+            </label>
+          </div>
+          <div class="priority-radio priority-medium">
+            <input type="radio" id="priority-medium" name="priority" value="medium">
+            <label for="priority-medium">
+              <span class="material-icons me-2 text-warning">error_outline</span>
+              <div>
+                <strong>普通</strong>
+                <small class="d-block text-muted">改善してほしい</small>
+              </div>
+            </label>
+          </div>
+          <div class="priority-radio priority-low">
+            <input type="radio" id="priority-low" name="priority" value="low">
+            <label for="priority-low">
+              <span class="material-icons me-2 text-success">info</span>
+              <div>
+                <strong>提案</strong>
+                <small class="d-block text-muted">時間をかけて検討</small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- 不満内容 -->
+        <div class="mb-4">
+          <label for="complaintText" class="form-label fw-bold">
+            <span class="material-icons align-middle me-2">edit</span>
+            不満・改善提案の詳細
+          </label>
+          <textarea
+            class="form-control"
+            id="complaintText"
+            rows="6"
+            placeholder="具体的な状況や改善提案をお書きください。場所、時間、頻度なども含めていただけると参考になります。"
+            required
+          ></textarea>
+          <div class="form-text">残り<span id="charCount">1000</span>文字</div>
+        </div>
+
+        <!-- 場所 -->
+        <div class="mb-4">
+          <label for="location" class="form-label fw-bold">
+            <span class="material-icons align-middle me-2">place</span>
+            関連する場所（任意）
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            placeholder="富岡駅前、市役所周辺、〇〇町〇丁目など"
+          >
+        </div>
+
+        <!-- 匿名チェック -->
+        <div class="anonymous-check mb-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="anonymous" checked>
+            <label class="form-check-label" for="anonymous">
+              <span class="material-icons align-middle me-2" style="font-size: 20px;">visibility_off</span>
+              <strong>匿名で送信</strong>
+            </label>
+          </div>
+          <small class="text-muted d-block mt-2">
+            チェックを入れると個人情報は一切記録されません。回答が必要な場合のみチェックを外してください。
+          </small>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div class="text-center">
+          <button type="submit" class="submit-btn btn btn-lg">
+            <span class="material-icons align-middle me-2">send</span>
+            送信する
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 注意事項 -->
+    <div class="container mb-5">
+      <div class="card border-0 bg-light">
+        <div class="card-body">
+          <h6 class="card-title">
+            <span class="material-icons align-middle me-2">info</span>
+            ご利用について
+          </h6>
+          <ul class="mb-0 small">
+            <li>投稿された内容は市政改善の参考として活用させていただきます</li>
+            <li>個人攻撃や誹謗中傷、事実と異なる内容は削除される場合があります</li>
+            <li>緊急を要する事案は直接関係部署にご連絡ください</li>
+            <li>このページは個人専用のため、他のユーザーには表示されません</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 送信完了画面 -->
+  <div id="successScreen" class="d-none">
+    <div class="hero-section text-center">
+      <div class="container">
+        <div class="mb-3">
+          <span class="material-icons" style="font-size: 4rem; color: #28a745;">check_circle</span>
+        </div>
+        <h1 class="display-6 fw-bold mb-3">送信完了</h1>
+        <p class="lead mb-0">賢者があなたの声を受け取りました</p>
+      </div>
+    </div>
+
+    <!-- 完了メッセージ -->
+    <div class="complaint-form">
+      <div class="text-center mb-4">
+        <h3 class="fw-bold mb-3">ありがとうございました</h3>
+        <p class="text-muted">
+          いただいた不満・改善提案は市政改善の重要な資料として<br>
+          関係部署で検討させていただきます。
+        </p>
+      </div>
+
+      <!-- 受付情報 -->
+      <div class="card bg-light border-0 mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4 text-muted">受付番号</div>
+            <div class="col-8 fw-bold" id="receiptNumber">TM-2024-001234</div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-4 text-muted">受付日時</div>
+            <div class="col-8" id="receiptDate">2024年8月17日 14:30</div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-4 text-muted">カテゴリー</div>
+            <div class="col-8" id="receiptCategory">交通・道路</div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-4 text-muted">緊急度</div>
+            <div class="col-8">
+              <span class="badge bg-warning" id="receiptPriority">普通</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 今後の流れ -->
+      <div class="card border-0 mb-4" style="background: #f8f9ff;">
+        <div class="card-body">
+          <h5 class="card-title mb-3">
+            <span class="material-icons align-middle me-2">timeline</span>
+            今後の流れ
+          </h5>
+          <div class="d-flex align-items-start mb-3">
+            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 30px; height: 30px; font-size: 14px;">1</div>
+            <div>
+              <strong>内容確認</strong>
+              <div class="text-muted small">担当部署でご意見を確認いたします</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-start mb-3">
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width: 30px; height: 30px; font-size: 14px;">2</div>
+            <div>
+              <strong>検討・調査</strong>
+              <div class="text-muted small">改善可能性について検討いたします</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-start">
+            <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3" style="width: 30px; height: 30px; font-size: 14px;">3</div>
+            <div>
+              <strong>対応実施</strong>
+              <div class="text-muted small">可能な範囲で改善に取り組みます</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- アクションボタン -->
+      <div class="text-center mb-4">
+        <button class="btn btn-primary btn-lg me-3" onclick="showForm()">
+          <span class="material-icons align-middle me-2">add</span>
+          別の不満を送信
+        </button>
+        <button class="btn btn-outline-secondary btn-lg" onclick="goHome()">
+          <span class="material-icons align-middle me-2">home</span>
+          トップに戻る
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
