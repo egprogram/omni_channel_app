@@ -19,9 +19,9 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "top", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "complaints", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "recommendations", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "pages", "data-turbo-track": "reload" if controller_name == "pages" %>
+    <%= stylesheet_link_tag "complaints", "data-turbo-track": "reload" if controller_name == "complaints" %>
+    <%= stylesheet_link_tag "recommendations", "data-turbo-track": "reload" if controller_name == "recommendations" %>
     <%= javascript_importmap_tags %>
 
     <!-- Bootstrap 5 -->
