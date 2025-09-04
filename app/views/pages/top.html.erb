@@ -1,0 +1,173 @@
+<!-- TOP_bar -->
+<nav class="navbar fixed-top" style="height: 56px; background: transparent;">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- 左側：ロゴ＋タイトル -->
+    <div class="d-flex align-items-center gap-2">
+      <img src="https://www.city.tomioka.lg.jp/www/contents/1000000002233/simple/131210230644_0.jpg" 
+           alt="富岡市ロゴ" 
+           style="width: 40px; height: 40px; object-fit: contain;">
+      <h5 class="mb-0 fw-bold text-white">β版</h5>
+    </div>
+    <!-- 右側：通知ボタン -->
+    <button type="button" class="btn btn-link p-0 text-white" aria-label="お知らせ">
+      <span class="material-icons" style="font-size: 24px; color: currentColor;">notifications</span>
+    </button>
+  </div>
+</nav>
+
+<!-- メインカルーセル -->
+<div id="swipeCarousel" class="carousel slide carousel-fade" data-bs-ride="false" data-bs-touch="true">
+  <!-- カルーセルインジケーター -->
+  <div class="carousel-indicators d-flex justify-content-around w-100 m-0">
+    <div class="d-flex flex-column align-items-center">
+      <p class="text-white mb-1 fw-bold">AI</p>
+      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="0" class="active"></button>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <p class="text-white mb-1 fw-bold">生活ナビ</p>
+      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="1"></button>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <p class="text-white mb-1 fw-bold">アプリ</p>
+      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <p class="text-white mb-1 fw-bold">市の情報</p>
+      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="3"></button>
+    </div>
+  </div>
+  <!-- カルーセルコンテンツ -->
+  <div class="carousel-inner">
+    <!-- AI画面 -->
+    <div class="carousel-item active bg1">
+      <p>ようこそ、富岡へ</p>
+      <!-- アニメーション -->
+      <div class="orbit-container">
+        <div class="big-circle"></div>
+        <div class="orbit">
+          <div class="small-circle"></div>
+        </div>
+      </div>
+      <div class="mt-5"></div>
+      <!-- AI入力エリア -->
+      <div class="position-relative ai-input-container">
+        <input type="text" 
+               class="form-control ai-input" 
+               placeholder="富岡について質問してみよう"
+               id="aiInput">
+        <!-- マイクアイコン -->
+        <span class="material-icons input-icon mic-icon" id="micBtn">mic</span>
+        <!-- 送信アイコン -->
+        <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
+      </div>
+    </div>
+    <!-- 天気・ゴミ情報ページ -->
+    <div class="carousel-item bg2">
+      <h1>2024年8月31日</h1>
+
+      <!-- 天気情報カード -->
+      <div class="info-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="me-3 d-flex align-items-center justify-content-center" style="min-width: 60px;">
+              <div style="font-size: 3rem; line-height: 1;">☀️</div>
+            </div>
+            <div class="flex-grow-1">
+              <h5 class="card-title mb-1">今日の天気</h5>
+              <p class="card-text mb-1 fw-bold" style="font-size: 1.1rem;">晴れ・21℃</p>
+              <small class="text-muted">湿度: 45% | 風速: 2m/s</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ゴミ情報カード -->
+      <div class="info-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="card-title mb-0">今日のゴミ</h5>
+            <span class="badge bg-danger fs-6">🔥 可燃ゴミ</span>
+          </div>
+          <p class="card-text mb-3">朝8時30分までに出してください</p>
+          <button class="btn btn-outline-primary btn-sm w-100" onclick="navigateToGarbageCalendar()">
+            <span class="material-icons me-1" style="font-size: 18px;">calendar_today</span>
+            ゴミカレンダーを見る
+          </button>
+        </div>
+      </div>
+
+      <!-- 今日のお知らせ -->
+      <div class="info-card">
+        <div class="card-body">
+          <h6 class="card-title">📢 今日のお知らせ</h6>
+          <p class="card-text mb-0">富岡製糸場での特別展示が開催中です</p>
+        </div>
+      </div>
+    </div>
+    <!-- アプリケーションページ -->
+    <div class="carousel-item bg3">
+      <h1>アプリケーション</h1>
+      <!-- アプリグリッド -->
+      <div class="app-grid">
+        <div class="app-item">
+          <div class="material-icons app-icon">travel_explore</div>
+          <div class="app-title">富岡観光</div>
+        </div>
+        <div class="app-item">
+          <div class="material-icons app-icon">shopping_cart</div>
+          <div class="app-title">地域激安情報</div>
+        </div>
+        <div class="app-item">
+          <div class="material-icons app-icon">psychology</div>
+          <div class="app-title">富岡の賢者</div>
+        </div>
+        <div class="app-item">
+          <div class="material-icons app-icon">local_taxi</div>
+          <div class="app-title">愛タクシー</div>
+        </div>
+        <div class="app-item">
+          <div class="material-icons app-icon">forum</div>
+          <div class="app-title">おすすめ掲示板</div>
+        </div>
+        <div class="app-item">
+          <div class="material-icons app-icon">explore</div>
+          <div class="app-title">富岡GO</div>
+        </div>
+      </div>
+    </div>
+    <!-- 市の情報ページ -->
+    <div class="carousel-item bg4">
+      <h1 class="text-dark">市の情報</h1>
+
+      <!-- イベントカレンダーボタン -->
+      <div class="mb-4">
+        <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" onclick="navigateToEventCalendar()" 
+                style="padding: 12px 30px; border-radius: 25px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); gap: 8px;">
+          <span class="material-icons" style="font-size: 24px; line-height: 1;">event</span>
+          <span>イベントカレンダー</span>
+        </button>
+      </div> 
+
+      <!-- お知らせリスト -->
+      <div class="news-list">
+        <h5 class="text-dark mb-3">最新のお知らせ</h5>
+        <div class="news-item">
+          <div class="news-date">2025/08/29</div>
+          <div class="news-title">市役所からの重要なお知らせ</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025/08/28</div>
+          <div class="news-title">富岡製糸場イベント開催のご案内</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025/08/27</div>
+          <div class="news-title">道路工事による交通規制のお知らせ</div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025/08/26</div>
+          <div class="news-title">健康診断の実施について</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

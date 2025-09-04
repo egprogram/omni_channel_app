@@ -19,6 +19,7 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "top", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "complaints", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "recommendations", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -31,8 +32,10 @@
   </head>
 
   <body>
-    <!-- 共通ヘッダー -->
-    <%= render "shared/header" %>
+    <% unless controller_name == "pages" && action_name == "top" %>
+      <!-- 共通ヘッダー -->
+      <%= render "shared/header" %>
+    <% end %>
 
     <%= yield %>
 
