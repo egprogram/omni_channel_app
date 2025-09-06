@@ -117,18 +117,18 @@
           <div class="material-icons app-icon">shopping_cart</div>
           <div class="app-title">地域激安情報</div>
         </div>
-        <div class="app-item">
+        <%= link_to complaints_new_path, class: "app-item text-decoration-none" do %>
           <div class="material-icons app-icon">psychology</div>
           <div class="app-title">富岡の賢者</div>
-        </div>
+        <% end %>
         <div class="app-item">
           <div class="material-icons app-icon">local_taxi</div>
           <div class="app-title">愛タクシー</div>
         </div>
-        <div class="app-item">
+        <%= link_to recommendations_path, class: "app-item text-decoration-none" do %>
           <div class="material-icons app-icon">forum</div>
           <div class="app-title">おすすめ掲示板</div>
-        </div>
+        <% end %>
         <div class="app-item">
           <div class="material-icons app-icon">explore</div>
           <div class="app-title">富岡GO</div>
