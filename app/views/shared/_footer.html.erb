@@ -2,20 +2,22 @@
 <nav class="navbar fixed-bottom bg-white border-top d-flex justify-content-around align-items-center"
 style="height: 56px;">
   <!-- ホーム -->
-  <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-      style="color: gray; height: 56px;">
-  <span class="material-icons" style="font-size: 24px;">home</span>
-  <div style="font-size: 12px;"><%= link_to "ホーム", root_path, class: "text-decoration-none text-reset" %></div>
-  <div class="my-1"></div>
-  </button>
+  <%= link_to root_path,
+      class: "btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0",
+      style: "color: gray; height: 56px;" do %>
+    <span class="material-icons" style="font-size: 24px;">home</span>
+    <div style="font-size: 12px;">ホーム</div>
+    <div class="my-1"></div>
+  <% end %>
 
   <!-- マップ -->
-  <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-      style="color: gray; height: 56px;">
-  <span class="material-icons" style="font-size: 24px;">place</span>
-  <div style="font-size: 12px;">マップ</div>
-  <div class="my-1"></div>
-  </button>
+  <%= link_to maps_path,
+      class: "btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0",
+      style: "color: gray; height: 56px;" do %>
+    <span class="material-icons" style="font-size: 24px;">place</span>
+    <div style="font-size: 12px;">マップ</div>
+    <div class="my-1"></div>
+  <% end %>
 
   <!-- お会計 -->
   <button class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"

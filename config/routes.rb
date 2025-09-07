@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # カレンダー
   get "/calendar", to: "calendar#index"
 
+  # マップ
+  get "/maps", to: "maps#index"
+
   # 街のおすすめ情報
   get "/recommendations", to: "recommendations#index"
   post "/recommendations/:id/like", to: "recommendations#like", as: :like_recommendation

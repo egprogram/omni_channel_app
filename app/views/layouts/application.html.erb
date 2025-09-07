@@ -23,11 +23,16 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "pages", "data-turbo-track": "reload" if controller_name == "pages" %>
     <%= stylesheet_link_tag "complaints", "data-turbo-track": "reload" if controller_name == "complaints" %>
     <%= stylesheet_link_tag "recommendations", "data-turbo-track": "reload" if controller_name == "recommendations" %>
+    <%= stylesheet_link_tag "maps", "data-turbo-track": "reload" if controller_name == "maps" %>
     <%= javascript_importmap_tags %>
   </head>
 

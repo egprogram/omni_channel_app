@@ -1,0 +1,234 @@
+/* app/assets/stylesheets/maps.css */
+
+/* 基本設定 */
+.map-page html,
+.map-page body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100%; 
+}
+
+/* 地図エリア */
+.map-page #map {
+  position: absolute;
+  top: 56px; /* 固定トップバー高さ */
+  bottom: 56px; /* ボトムナビの高さ */
+  left: 0;
+  right: 0;
+  background-color: #f0f0f0; /* 背景色を設定してエリアを確認 */
+  z-index: 1;
+}
+
+/* 検索ボックス */
+.map-page #searchBox {
+  position: absolute;
+  top: 66px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  padding: 6px 12px;
+  border-radius: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  width: 250px;
+}
+
+.map-page #searchBox .search-icon {
+  font-size: 20px;
+  color: gray;
+}
+
+.map-page #searchBox input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* 現在地・リストボタン */
+.map-page .locate-btn,
+.map-page .list-btn {
+  position: fixed;
+  right: 15px;
+  z-index: 3500;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.map-page .locate-btn:hover,
+.map-page .list-btn:hover {
+  transform: scale(1.05);
+}
+
+.map-page .locate-btn { 
+  bottom: calc(300px + env(safe-area-inset-bottom)); 
+}
+
+.map-page .list-btn { 
+  bottom: calc(240px + env(safe-area-inset-bottom)); 
+}
+
+/* Swiperコンテナ */
+.map-page .swiper-container {
+  position: fixed;
+  bottom: calc(70px + env(safe-area-inset-bottom));
+  left: 0;
+  width: 70%;
+  height: 160px;
+  z-index: 2500;
+}
+
+.map-page .swiper-slide {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  flex-shrink: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.map-page .swiper-slide:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.map-page .swiper-slide b {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.map-page .swiper-slide br + text {
+  font-size: 12px;
+  color: #666;
+}
+
+/* ナビゲーションバー */
+.map-page .navbar.fixed-bottom { 
+  height: 56px; 
+}
+
+/* レスポンシブ対応 - タブレット・スマホ */
+@media (max-width: 768px) {
+  .map-page #searchBox {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .map-page .swiper-container {
+    width: 85%;
+  }
+
+  .map-page .locate-btn,
+  .map-page .list-btn {
+    width: 48px;
+    height: 48px;
+    right: 10px;
+  }
+
+  .map-page .locate-btn { 
+    bottom: calc(280px + env(safe-area-inset-bottom)); 
+  }
+
+  .map-page .list-btn { 
+    bottom: calc(220px + env(safe-area-inset-bottom)); 
+  }
+}
+
+/* 小さな画面（スマートフォン縦持ち）*/
+@media (max-width: 480px) {
+  .map-page #searchBox {
+    width: 95%;
+    max-width: 280px;
+    font-size: 13px;
+  }
+
+  .map-page .swiper-container {
+    width: 90%;
+    height: 140px;
+  }
+
+  .map-page .swiper-slide {
+    padding: 8px;
+  }
+
+  .map-page .swiper-slide b {
+    font-size: 13px;
+  }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  .map-page #searchBox {
+    background-color: #2d3748;
+    color: white;
+  }
+
+  .map-page #searchBox .search-icon {
+    color: #cbd5e0;
+  }
+
+  .map-page #searchBox input {
+    color: white;
+  }
+
+  .map-page #searchBox input::placeholder {
+    color: #a0aec0;
+  }
+
+  .map-page .locate-btn,
+  .map-page .list-btn {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+
+  .map-page .locate-btn .material-icons,
+  .map-page .list-btn .material-icons {
+    color: #cbd5e0 !important;
+  }
+
+  .map-page .swiper-slide {
+    background: #2d3748;
+    color: white;
+  }
+
+  .map-page .swiper-slide b {
+    color: white;
+  }
+}
+
+/* ランドスケープモード対応 */
+@media (orientation: landscape) and (max-height: 500px) {
+  .map-page .locate-btn { 
+    bottom: calc(200px + env(safe-area-inset-bottom)); 
+  }
+
+  .map-page .list-btn { 
+    bottom: calc(150px + env(safe-area-inset-bottom)); 
+  }
+
+  .map-page .swiper-container {
+    height: 120px;
+    bottom: calc(60px + env(safe-area-inset-bottom));
+  }
+}
