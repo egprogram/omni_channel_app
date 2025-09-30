@@ -39,13 +39,18 @@
   <body>
     <!-- 共通ヘッダー -->
     <% unless controller_name == "pages" && action_name == "top" %>
-      <%= render "shared/header" %>
+      <% if is_app_header? %>
+        <%= render "shared/#{app_header_template}", title: app_header_title %>
+      <% else %>
+        <%= render "shared/header", title: app_header_title %>
+      <% end %>
     <% end %>
 
+    <!-- 中身 -->
     <%= yield %>
-
+    
     <!-- 共通フッター -->
-    <% if controller_name == "pages" %>
+    <% if controller_name == "pages" || controller_name == "maps"%> 
       <%= render "shared/footer" %>
     <% end %>
 

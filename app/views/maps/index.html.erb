@@ -1,18 +1,8 @@
 <!-- app/views/maps/index.html.erb -->
-
+<% content_for :header_title do %>
+  <%= @header_title %>
+<% end %>
 <div data-controller="maps" class="map-page">
-  <!-- 固定トップバー -->
-  <nav class="navbar navbar-light bg-light fixed-top shadow-sm" style="height:56px;">
-    <div class="container d-flex align-items-center" style="height:100%;">
-      <div style="width:40px; display:flex; justify-content:start; align-items:center; cursor:pointer;"
-           data-action="click->tomioka-map#goBack">
-        <span class="material-icons" style="font-size:30px;">chevron_left</span>
-      </div>
-      <h5 class="mb-0 fw-bold text-center flex-grow-1" style="margin:0;">富岡MAP</h5>
-      <div style="width:40px;"></div>
-    </div>
-  </nav>
-
   <!-- 地図表示エリア -->
   <div data-tomioka-map-target="map" id="map"></div>
 

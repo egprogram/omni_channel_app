@@ -1,3 +1,7 @@
+# MapsController
+#
+# マップアプリのコントローラ
+#
 class MapsController < ApplicationController
   def index
   end
