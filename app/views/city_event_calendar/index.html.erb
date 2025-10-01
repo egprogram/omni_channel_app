@@ -1,0 +1,98 @@
+<!-- ヘッダー -->
+<nav
+    class="navbar navbar-light fixed-top border-bottom shadow-sm bg-white">
+    <div
+        class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-2">
+            <span class="material-icons" id="prevMonth"
+                style="font-size: 30px; cursor: pointer;">chevron_left</span>
+            <span id="headerYear" class="fw-bold"
+                style="font-size: 1rem;"></span>
+        </div>
+        <h5
+            class="mb-0 fw-bold text-center position-absolute start-50 translate-middle-x">イベント</h5>
+        <div class="border rounded px-2 py-1 text-center"
+            style="min-width: 50px;" id="todayBtn">今日</div>
+    </div>
+    <h1 id="headerMonth" class="mb-0 ps-3 fw-bold"
+        style="font-size: 1.5rem;"></h1>
+</nav>
+
+<!-- 曜日バー -->
+<div class="weekday-bar d-flex text-center fw-bold">
+    <div
+        class="d-flex justify-content-center align-items-center weekday">日</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">月</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">火</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">水</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">木</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">金</div>
+    <div
+        class="d-flex justify-content-center align-items-center weekday">土</div>
+</div>
+
+<!-- カレンダー -->
+<div id="calendar" data-controller="city-event-calendar" class="container-fluid p-0"></div>
+
+<!-- ボトムバー -->
+<nav
+    class="navbar fixed-bottom bg-white border-top px-5 d-flex justify-content-between align-items-center"
+    style="height: 56px;">
+    <button
+        class="btn text-center d-flex flex-column align-items-center p-0"
+        style=" color: gray; height: 56px;">
+        <span class="material-icons"
+            style="font-size: 24px;">smart_toy</span>
+        <div style="font-size: 12px;">AI</div>
+    </button>
+    <button
+        class="btn text-center d-flex flex-column align-items-center p-0 color: gray;"
+        style="color: gray; height: 56px;">
+        <span class="material-icons"
+            style="font-size: 24px;">event</span>
+        <div style="font-size: 12px;">イベント一覧</div>
+    </button>
+    <button
+        class="btn text-center d-flex flex-column align-items-center p-0 color: gray;"
+        style="color: gray; height: 56px;">
+        <span class="material-icons"
+            style="font-size: 24px;">notifications</span>
+        <div style="font-size: 12px;">通知設定</div>
+    </button>
+</nav>
+
+<!-- ハーフモーダル -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="halfModal"
+    aria-labelledby="halfModalLabel">
+    <div
+        class="offcanvas-header d-flex justify-content-between align-items-center"
+        style="padding: 0.5rem 1rem; color: black; box-shadow: 0 2px 4px rgba(0,0,0,0.15);">
+        <h5 class="offcanvas-title text-center flex-grow-1 m-0"
+            id="halfModalLabel">2025年08月01日(金)</h5>
+    </div>
+
+    <div class="offcanvas-body">
+        <img
+            src="https://www.city.toyokawa.lg.jp/material/images/group/34/kanengomi.jpg"
+            alt="可燃ごみイメージ"
+            style="max-width: 100%; height: auto; display: block; margin-bottom: 1rem;">
+        <ul style="font-size: 0.75rem; font-weight: bold;">
+            <li>生ごみは水分をよく切る</li>
+            <li>少量の食用油は固めるか布に含ませる</li>
+            <li>枝は直径10cm以下、長さは60cm以下にして、30cmくらいに束ねる</li>
+            <li style="color: red;">シュロの木は不可</li>
+            <li>発報スチロールは小さく割る</li>
+            <li>ホースの長さは1m以下に切る</li>
+            <li>シートは1m四角以下に切る</li>
+            <li>発報スチロールは小さく割る</li>
+            <li style="color: red;">農業用のものは不可</li>
+            <li style="color: red;">ビーズクッション、シュレッター込みは袋に入れ中身を表示する</li>
+            <li>45ℓの袋で口が縛られないものは粗大ごみへ</li>
+        </ul>
+    </div>
+</div>

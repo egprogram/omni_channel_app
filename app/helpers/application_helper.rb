@@ -1,10 +1,11 @@
-#
 module ApplicationHelper
   # アプリのヘッダーのハッシュ
   APP_HEADER_CONFIG = {
     "recommendations" => { template: "app_header", title: "おすすめ掲示板" },
-    "complaints" => { template: "app_header", title: "富岡の賢者" },
-    "maps" => { template: "bottom_app_header", title: "富岡マップ" }
+    "complaints"     => { template: "app_header", title: "富岡の賢者" },
+    "cash"           => { template: "app_header", title: "お会計" },
+    "trash_calendar" => { template: "app_header", title: "ごみカレンダー" },
+    "maps"           => { template: "bottom_app_header", title: "富岡マップ" }
   }.freeze
 
   # ヘッダーを表示すべきか

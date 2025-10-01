@@ -20,9 +20,21 @@ curl http://localhost:3000
 
 ---
 
-### カレンダー機能
-- **URL:** `/calendar`
-- **Controller#Action:** `calendar#index`
+### AI機能
+- **URL:** `/ai`
+- **Controller#Action:** `ai#index`
+- **説明:** 富岡市特化のAI機能ページ。
+
+- **URL:** `/ai/ask`
+- **Controller#Action:** `ai#ask`
+- **HTTP Method:** POST
+- **説明:** ユーザーからの質問（例: 今日のゴミは？）に応答。
+
+---
+
+### ゴミカレンダー
+- **URL:** `/trash-calendar`
+- **Controller#Action:** `trash-calendar#index`
 - **説明:** 月ごとのゴミ出しカレンダーを表示。
 
 ---
@@ -51,12 +63,24 @@ curl http://localhost:3000
 
 ---
 
-### AI機能
-- **URL:** `/ai`
-- **Controller#Action:** `ai#index`
-- **説明:** 富岡市特化のAI機能ページ。
+### 会計
+- **URL:** `/cash/`
+- **Controller#Action:** `cash#index`
+- **説明:** 不満を入力するページ。
 
-- **URL:** `/ai/ask`
-- **Controller#Action:** `ai#ask`
-- **HTTP Method:** POST
-- **説明:** ユーザーからの質問（例: 今日のゴミは？）に応答。
+---
+
+### ごみカレンダー
+- **URL:** `/trash_calendar/`
+- **Controller#Action:** `trash_calendar#index`
+- **説明:** 不満を入力するページ。
+
+---
+
+### 市のイベントカレンダー
+- **URL:** `/city_event_calendar/`
+- **Controller#Action:** `city_event_calendar#index`
+- **説明:** 不満を入力するページ。
+
+---
+
