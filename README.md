@@ -20,10 +20,57 @@ curl http://localhost:3000
 
 ---
 
-### カレンダー機能
-- **URL:** `/calendar`
-- **Controller#Action:** `calendar#index`
-- **説明:** 月ごとのゴミ出しカレンダーを表示。
+### AI機能
+- **URL:** `/ai`
+- **Controller#Action:** `ai#index`
+- **説明:** 富岡市特化のAI機能ページ。
+
+- **URL:** `/ai/ask`
+- **Controller#Action:** `ai#ask`
+- **HTTP Method:** POST
+- **説明:** ユーザーからの質問（例: 今日のゴミは？）に応答。
+
+---
+
+### マップ機能
+- **URL:** `/maps`
+- **Controller#Action:** `maps#index`
+- **説明:** 地図を表示するページ。
+
+---
+
+### 会計機能
+- **URL:** `/cash`
+- **Controller#Action:** `cash#index`
+- **説明:** 会計処理するページ。
+
+---
+
+### クーポン機能
+- **URL:** `/coupons`
+- **Controller#Action:** `coupons#index`
+- **説明:** クーポンを表示するページ。
+
+---
+
+### 設定機能
+- **URL:** `/settings`
+- **Controller#Action:** `settings#index`
+- **説明:** アカウントの設定をするページ。
+
+---
+
+### ごみカレンダー
+- **URL:** `/trash_calendar/`
+- **Controller#Action:** `trash_calendar#index`
+- **説明:** 市のごみ時期を表示するページ。
+
+---
+
+### 市のイベントカレンダー
+- **URL:** `/city_event_calendar/`
+- **Controller#Action:** `city_event_calendar#index`
+- **説明:** 市のイベントを表示するページ。
 
 ---
 
@@ -50,13 +97,3 @@ curl http://localhost:3000
 - **説明:** 不満を送信する。
 
 ---
-
-### AI機能
-- **URL:** `/ai`
-- **Controller#Action:** `ai#index`
-- **説明:** 富岡市特化のAI機能ページ。
-
-- **URL:** `/ai/ask`
-- **Controller#Action:** `ai#ask`
-- **HTTP Method:** POST
-- **説明:** ユーザーからの質問（例: 今日のゴミは？）に応答。

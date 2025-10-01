@@ -1,0 +1,68 @@
+
+/* 曜日バー */
+.weekday-bar {
+    height: 40px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: #f0f0f0;
+    z-index: 1020;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.weekday {
+    flex: 1;
+}
+.weekday.sun {
+    flex: 0.5;
+    color: red;
+}
+.weekday.sat {
+    flex: 0.5;
+    color: blue;
+}
+
+/* カレンダー */
+#calendar {
+    position: absolute;
+    top: 120px;
+    bottom: 56px; 
+    left: 0;
+    right: 0;
+}
+.calendar-cell {
+    position: relative;
+    height: calc((100vh - 120px - 56px) / 6); 
+}
+.calendar-day {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.calendar-note {
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    font-size: 0.7rem;
+    color: #555;
+}
+.offcanvas-bottom {
+        height: 98vh !important;
+        max-height: 98vh !important;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+.offcanvas-header {
+    height: 45px;   
+    background-color: #c8c8c8;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.offcanvas-fullscreen {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+}
