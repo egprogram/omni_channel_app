@@ -2,38 +2,25 @@
 <% content_for :header_title do %>
   <%= @header_title %>
 <% end %>
-<div data-controller="maps" class="map-page">
+<div data-controller="map" class="map-page">
   <!-- 地図表示エリア -->
-  <div data-tomioka-map-target="map" id="map"></div>
+  <div data-map-target="map" id="map"></div>
 
   <!-- 検索ボックス -->
-  <div id="searchBox">
-    <span class="material-icons search-icon">search</span>
-    <input type="text"
-           data-tomioka-map-target="searchInput"
-           placeholder="観光スポットを検索" />
-  </div>
+  <input type="text" data-map-target="searchInput" placeholder="観光スポットを検索" />
 
   <!-- 現在地ボタン -->
-  <div class="locate-btn"
-       data-tomioka-map-target="locateBtn"
-       data-action="click->tomioka-map#getCurrentLocation"
-       title="現在地へ移動">
-    <span class="material-icons" style="color: gray;">my_location</span>
+  <div class="locate-btn" data-map-target="locateBtn" data-action="click->map#getCurrentLocation">
+    <span class="material-icons">my_location</span>
   </div>
 
   <!-- リスト表示ボタン -->
-  <div class="list-btn"
-       data-tomioka-map-target="listBtn"
-       data-action="click->tomioka-map#showSpotList"
-       title="リストを表示">
-    <span class="material-icons" style="color: gray;">list</span>
+  <div class="list-btn" data-map-target="listBtn" data-action="click->map#showSpotList">
+    <span class="material-icons">list</span>
   </div>
 
   <!-- 横スワイプカード -->
   <div class="swiper-container">
-    <div class="swiper-wrapper" data-tomioka-map-target="spotCards"></div>
+    <div class="swiper-wrapper" data-map-target="spotCards"></div>
   </div>
 </div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
