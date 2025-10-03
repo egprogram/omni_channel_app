@@ -47,7 +47,11 @@
     <%# イベントカレンダーのcss %>
     <%= stylesheet_link_tag "city_event_calendar", "data-turbo-track": "reload" if controller_name == "city_event_calendar" %>
 
-    <%# ごみカレンダーかイベントカレンダならばカレンダーCDNを読み込む%>
+    <%# ごみカレンダーか    <% if controller_name == "trash_calendar" || controller_name == "city_event_calendar" %>
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js" data-turbo-track="reload"></script>
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/ja.js" data-turbo-track="reload"></script>
+      <script>dayjs.locale("ja")</script>
+    <% end %>イベントカレンダならばカレンダーCDNを読み込む%>
     <% if controller_name == "trash_calendar" || controller_name == "city_event_calendar" %>
       <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/ja.js"></script>
