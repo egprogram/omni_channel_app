@@ -36,10 +36,9 @@
     <%= stylesheet_link_tag "maps", "data-turbo-track": "reload" if controller_name == "maps" %>
     <%# 富岡マップのCND %>
     <% if controller_name == "maps" %>
-        <link rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" data-turbo-track="reload"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"  data-turbo-track="reload"></script>
     <% end %>
 
     <%# ごみカレンダーのcss %>
