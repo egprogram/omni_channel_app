@@ -1,24 +1,22 @@
-<!-- app/views/maps/index.html.erb -->
-<div data-controller="map" class="map-page">
-  <!-- 地図表示エリア -->
-  <div data-map-target="map" id="map"></div>
+<!-- 背景 -->
+<div class="background-layer"></div>
 
-  <!-- 現在地ボタン -->
-  <div class="locate-btn" data-map-target="locateBtn" data-action="click->map#getCurrentLocation">
-    <span class="material-icons">my_location</span>
-  </div>
-
-  <!-- リスト表示ボタン -->
-  <div class="list-btn" data-map-target="listBtn" data-action="click->map#showSpotList">
-    <span class="material-icons">list</span>
-  </div>
-
-  <!-- 横スワイプカード -->
-  <div class="swiper-container">
-    <div class="swiper-wrapper" data-map-target="spotCards"></div>
-  </div>
+<!-- 画面パーツ -->
+<div style="height: 100vh; display: flex; flex-direction: column; overflow: hidden;">
+    <!-- タイトル -->
+    <div class="position-fixed start-50 translate-middle-x mt-0 py-1 px-4 text-center"
+        style="top: 10px;
+                backdrop-filter: blur(8px); 
+                -webkit-backdrop-filter: blur(8px); 
+                background-color: rgba(255, 255, 255, 0.2); 
+                border-radius: 2rem; 
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                z-index: 50;">
+        <p class="m-0" style="font-size: 20px; color: white; font-weight: bold;">
+            クーポン
+        </p>
+    </div>
 </div>
-
 <!-- フッター -->
 <footer class="footer-box">
     <!-- ホーム -->
@@ -30,20 +28,12 @@
     </div>
 
     <!-- マップ -->
-    <div style="
-        border-radius: 25px;
-        background: rgba(128, 128, 128, 0.3);  
-        backdrop-filter: blur(6px);
-        height: 55px;
-        width: 60px;   
-        -webkit-backdrop-filter: blur(6px); 
-        display: inline-block;"
-        class="d-flex justify-content-center">
+    <div style="width: 60px;" class="d-flex justify-content-center">
         <a href="<%= maps_path %>" 
             class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
             style="height: 56px; background-color: transparent;">
-             <span class="material-icons " style="font-size: 28px; color: red">place</span>
-            <div style="font-size: 12px; color: red; font-weight: bold;">マップ</div>
+            <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
         </a>
     </div>
     
@@ -61,12 +51,19 @@
     </a>
     
     <!-- クーポン -->
-    <div style="width: 60px;" class="d-flex justify-content-center">
+    <div style="
+        border-radius: 25px;
+        background: rgba(128, 128, 128, 0.3);  
+        backdrop-filter: blur(6px);
+        height: 55px;
+        width: 60px;   
+        -webkit-backdrop-filter: blur(6px); 
+        display: inline-block;">
         <a href="<%= coupons_path %>" 
             class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
             style="height: 56px; background-color: transparent;">
-            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
-            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+            <span class="material-icons " style="font-size: 28px; color: red">sell</span>
+            <div style="font-size: 12px; color: red; font-weight: bold;">クーポン</div>
         </a>
     </div>
 

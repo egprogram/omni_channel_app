@@ -6,10 +6,26 @@
       <h5 class="mb-0 fw-bold text-white">β版</h5>
     </div>
     <!-- 右側：通知ボタン -->
-    <button type="button" class="btn btn-link p-0 text-white" aria-label="お知らせ">
-      <span class="material-icons" style="font-size: 24px; color: currentColor;">notifications</span>
-    </button>
-  </div>
+    <div class="d-flex align-items-center gap-2">
+      <button type="button" aria-label="お知らせ"
+        style="
+          background-color: rgba(255, 255, 255, 0.2);
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          padding: 0;
+          transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        "
+      >
+        <span class="material-icons" style="color: white; font-size: 24px;">notifications</span>
+      </button>
+    </div>
 </nav>
 
 <!-- メインカルーセル -->
@@ -48,14 +64,27 @@
       <div class="mt-5"></div>
       <!-- AI入力エリア -->
       <div class="position-relative ai-input-container">
-        <input type="text" 
-               class="form-control ai-input" 
-               placeholder="富岡について質問してみよう"
-               id="aiInput">
-        <!-- マイクアイコン -->
-        <span class="material-icons input-icon mic-icon" id="micBtn">mic</span>
-        <!-- 送信アイコン -->
-        <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
+        <%= form_with url: ai_ask_path, method: :post, html: { id: "aiForm" } do |f| %>
+          <%= f.text_field :message, 
+          class: "form-control ai-input", 
+          placeholder: "富岡について質問してみよう", 
+          id: "aiInput" %>
+          <!-- マイクアイコン -->
+          <span class="material-icons input-icon mic-icon" id="micBtn">mic</span>
+          <!-- 送信アイコン -->
+          <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
+          <% end %>
+          <!-- とりま、動かすため-->
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              const sendBtn = document.getElementById("sendBtn");
+              const form = document.getElementById("aiForm");
+
+              sendBtn.addEventListener("click", () => {
+                form.submit();
+              });
+            });
+          </script>  
       </div>
     </div>
     <!-- 天気・ゴミ情報ページ -->
@@ -86,10 +115,11 @@
             <span class="badge bg-danger fs-6">🔥 可燃ゴミ</span>
           </div>
           <p class="card-text mb-3">朝8時30分までに出してください</p>
-          <button class="btn btn-outline-primary btn-sm w-100" onclick="navigateToGarbageCalendar()">
+          <%= link_to trash_calendar_path,
+            class: "btn btn-outline-primary btn-sm w-100 text-decoration-none" do %>
             <span class="material-icons me-1" style="font-size: 18px;">calendar_today</span>
             ゴミカレンダーを見る
-          </button>
+          <% end %>
         </div>
       </div>
 
@@ -138,11 +168,11 @@
 
       <!-- イベントカレンダーボタン -->
       <div class="mb-4">
-        <button class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" onclick="navigateToEventCalendar()" 
-                style="padding: 12px 30px; border-radius: 25px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); gap: 8px;">
+        <%= link_to city_event_calendar_path, class: "btn btn-primary btn-lg d-flex align-items-center justify-content-center",
+          style: "padding: 12px 30px; border-radius: 25px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); gap: 8px;" do %>
           <span class="material-icons" style="font-size: 24px; line-height: 1;">event</span>
           <span>イベントカレンダー</span>
-        </button>
+        <% end %>
       </div> 
 
       <!-- お知らせリスト -->
@@ -167,4 +197,67 @@
       </div>
     </div>
   </div>
+
+  <!-- フッター -->
+  <footer class="footer-box">
+      <!-- ホーム -->
+      <div style="
+          border-radius: 25px;
+            background: rgba(128, 128, 128, 0.3);    
+          backdrop-filter: blur(6px);
+          height: 55px;
+          width: 60px;   
+          -webkit-backdrop-filter: blur(6px); 
+          display: inline-block;"
+          class="d-flex justify-content-center">
+          <a href="<%= root_path %>" class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
+              <span class="material-icons " style="font-size: 28px; color: red">home</span>
+              <div style="font-size: 12px; color: red;; font-weight: bold;">ホーム</div>
+          </a>
+      </div>
+
+      <!-- マップ -->
+      <div style="width: 60px;" class="d-flex justify-content-center">
+          <a href="<%= maps_path %>" 
+              class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+              style="height: 56px; background-color: transparent;">
+              <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
+              <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
+          </a>
+      </div>
+      
+      <!-- お会計 -->
+      <a href="<%= cash_path %>" 
+      class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
+      style="background-color: red; width: 70px; height: 60px; 
+              border-radius: 20px;
+              box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+              margin-top: -20px;
+              z-index: 10;       
+              position: relative;">
+          <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
+          <div style="font-size: 12px; color: white;">お会計</div>
+      </a>
+
+
+    <!-- クーポン -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= coupons_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+        </a>
+    </div>
+
+    <!-- 設定 -->
+    <div style="width: 63px;" class="d-flex justify-content-center">
+        <a href="<%= settings_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">account_circle</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">アカウント</div>
+        </a>
+    </div>
+  </footer> 
 </div>

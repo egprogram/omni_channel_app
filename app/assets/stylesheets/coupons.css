@@ -1,0 +1,8 @@
+/* 全体背景画像 */
+.background-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/coupons-back.jpg') center/cover no-repeat;
+    z-index: -1;
+}

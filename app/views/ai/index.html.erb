@@ -1,0 +1,127 @@
+<div class="background-layer"></div>
+<!-- メインコンテンツ -->
+
+<!-- TOP_bar -->
+<nav class="navbar fixed-top" style="height: 56px; background: transparent;">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- 左側：ロゴ＋タイトル -->
+    <div class="d-flex align-items-center gap-2">
+      <h5 class="mb-0 fw-bold text-white">β版</h5>
+    </div>
+    <!-- 右側：履歴ボタン -->
+    <!-- 右側：通知ボタン -->
+    <div class="d-flex align-items-center gap-2">
+      <button type="button" aria-label="履歴"
+        style="
+          background-color: rgba(255, 255, 255, 0.2);
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          padding: 0;
+          transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        "
+      >
+        <span class="material-icons" style="color: white; font-size: 24px;">history</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5 mt-5" style="padding-bottom: 100px;">
+        <!-- チャットメッセージの例 -->
+<div class="chat-message user">
+    <div class="message-bubble">
+        <%= @message %>
+    </div>
+</div>
+
+<div class="chat-message ai">
+    <div class="message-bubble">
+        こんにちは！何か質問がありますか？
+    </div>
+</div>
+
+<div class="chat-message user">
+    <div class="message-bubble">
+        今日の天気は？
+    </div>
+</div>
+
+<div class="chat-message ai">
+    <div class="message-bubble">
+        今日の東京は晴れの予報です。
+    </div>
+</div>
+</div>
+
+<!-- 記入欄 -->
+<div class="chat-input-container">
+    <input type="text" placeholder="質問してみよう..." class="chat-input">
+    <span class="material-icons mic-icon">mic</span>
+    <span class="material-icons send-icon">send</span>
+</div>
+
+<!-- 警告 -->
+<div class="chat-warning">
+    SIR-Qは不正確な情報を表示することがあるため、<br>生成された回答を再確認してください
+</div>
+
+<!-- フッター -->
+<footer class="footer-box">
+    <!-- ホーム -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= root_path %>" class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
+            <span class="material-icons stroke-black" style="font-size: 28px;">home</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">ホーム</div>
+        </a>
+    </div>
+
+    <!-- マップ -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= maps_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
+        </a>
+    </div>
+    
+    <!-- お会計 -->
+    <a href="<%= cash_path %>" 
+    class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
+    style="background-color: red; width: 70px; height: 60px; 
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            margin-top: -20px;
+            z-index: 10;       
+            position: relative;">
+        <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
+        <div style="font-size: 12px; color: white;">お会計</div>
+    </a>
+
+    <!-- クーポン -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= coupons_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+        </a>
+    </div>
+
+    <!-- 設定 -->
+    <div style="width: 63px;" class="d-flex justify-content-center">
+        <a href="<%= settings_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">account_circle</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">アカウント</div>
+        </a>
+    </div>
+</footer> 

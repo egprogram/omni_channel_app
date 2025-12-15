@@ -1,45 +1,59 @@
-<!-- ナビゲーション -->
-<nav class="navbar fixed-bottom bg-white border-top d-flex justify-content-around align-items-center"
-style="height: 56px;">
-  <!-- ホーム -->
-  <%= link_to root_path,
-      class: "btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0",
-      style: "color: gray; height: 56px;" do %>
-    <span class="material-icons" style="font-size: 24px;">home</span>
-    <div style="font-size: 12px;">ホーム</div>
-    <div class="my-1"></div>
-  <% end %>
+<!-- フッター -->
+<footer class="footer-box">
+    <!-- ホーム -->
+    <div style="
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.1);  
+        backdrop-filter: blur(6px);
+        height: 55px;
+        width: 60px;   
+        -webkit-backdrop-filter: blur(6px); 
+        display: inline-block;"
+        class="d-flex justify-content-center">
+        <a href="<%= root_path %>" class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
+            <span class="material-icons " style="font-size: 28px; color: red">home</span>
+            <div style="font-size: 12px; color: red;; font-weight: bold;">ホーム</div>
+        </a>
+    </div>
 
-  <!-- マップ -->
-  <%= link_to maps_path,
-      class: "btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0",
-      style: "color: gray; height: 56px;" do %>
-    <span class="material-icons" style="font-size: 24px;">place</span>
-    <div style="font-size: 12px;">マップ</div>
-    <div class="my-1"></div>
-  <% end %>
+    <!-- マップ -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= maps_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
+        </a>
+    </div>
+    
+    <!-- お会計 -->
+    <a href="<%= cash_path %>" 
+    class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
+    style="background-color: red; width: 70px; height: 60px; 
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            margin-top: -20px;
+            z-index: 10;       
+            position: relative;">
+        <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
+        <div style="font-size: 12px; color: white;">お会計</div>
+    </a>
 
-  <!-- お会計 -->
-  <button class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
-      style="background-color: red; width: 70px; height: 50px; border-radius: 16px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.3); margin-top: -30px;">
-      <span class="material-icons" style="font-size: 28px; line-height: 1;">qr_code_scanner</span>
-      <div style="font-size: 12px; line-height: 1;">お会計</div>
-  </button>
+    <!-- クーポン -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+        style="color: gray; height: 56px;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+        </button>
+    </div>
 
-  <!-- クーポン -->
-  <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-  style="color: gray; height: 56px;">
-    <span class="material-icons" style="font-size: 24px;">sell</span>
-    <div style="font-size: 12px;">クーポン</div>
-    <div class="my-1"></div>
-  </button>
-
-  <!-- 設定 -->
-  <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-      style="color: gray; height: 56px;">
-  <span class="material-icons" style="font-size: 24px;">settings</span>
-  <div style="font-size: 12px;">設定</div>
-  <div class="my-1"></div>
-  </button>
-</nav>
+    <!-- 設定 -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <button class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="color: white; height: 56px;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">settings</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">設定</div>
+        </button>
+    </div>
+</footer> 

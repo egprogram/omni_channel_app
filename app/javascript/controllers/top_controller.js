@@ -3,8 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="top"
 export default class extends Controller {
   connect() {
-    console.log("Top controller connected ✅")
-
     // ボタンや入力欄を取得
     const sendBtn = document.getElementById('sendBtn')
     const aiInput = document.getElementById('aiInput')
@@ -37,5 +35,6 @@ export default class extends Controller {
     aiInput?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendBtn.click()
     })
+
   }
 }

@@ -16,7 +16,7 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: visible; 
   margin: 0;
   padding: 0;
   font-size: clamp(14px, 2.5vw, 16px);
@@ -109,53 +109,29 @@ body {
 /* ==============================================
    背景グラデーション
    ============================================== */
-.bg1 { 
-  background: linear-gradient(135deg, #0ea5e9, #1e293b); 
+.bg1 {
+  background-image: url('/icon.png');
+  background-size: cover;      
+  background-repeat: no-repeat; 
+  background-position: center;  
 }
-.bg2 { 
-  background: linear-gradient(135deg, #22c55e, #1e293b); 
+.bg2 {
+  background-image: url('/icon.png');
+  background-size: cover;      
+  background-repeat: no-repeat; 
+  background-position: center;   
 }
 .bg3 { 
-  background: linear-gradient(135deg, #f59e0b, #1e293b); 
+  background-image: url('/icon.png');
+  background-size: cover;      
+  background-repeat: no-repeat; 
+  background-position: center;  
 }
-.bg4 { 
-  background: linear-gradient(135deg, #f2f2f2, #1e293b); 
-}
-
-/* ==============================================
-   AIページのアニメーション - レスポンシブ対応
-   ============================================== */
-.orbit-container {
-  position: relative;
-  width: clamp(120px, 25vw, 180px);
-  height: clamp(120px, 25vw, 180px);
-  margin: clamp(10px, 2vh, 20px) 0 clamp(20px, 4vh, 30px);
-}
-
-.orbit {
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 3s linear infinite;
-}
-
-.small-circle {
-  width: clamp(16px, 3.5vw, 24px);
-  height: clamp(16px, 3.5vw, 24px);
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 25%;
-  transform: translateX(-50%);
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.bg4 {
+  background-image: url('/icon.png');
+  background-size: cover;      
+  background-repeat: no-repeat; 
+  background-position: center;   
 }
 
 /* ==============================================
@@ -388,3 +364,22 @@ body {
   }
 }
 
+/* フッター部分 */
+.footer-box {
+  width: 95%;
+  position: fixed;           
+  bottom: 15px;              
+  left: 50%;                 
+  transform: translateX(-50%); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 1rem;   
+  border-radius: 60px;  
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(12px);           
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12), 
+              0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000; 
+}
