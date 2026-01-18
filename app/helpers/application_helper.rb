@@ -2,7 +2,7 @@ module ApplicationHelper
   # アプリのヘッダーのハッシュ
   APP_HEADER_CONFIG = {
     "recommendations" => { template: "app_header", title: "おすすめ掲示板" },
-    "complaints"     => { template: "app_header", title: "富岡の賢者" },
+    "complaints"     => { template: "app_header", title: "知多の賢者" },
     "cash"           => { template: "app_header", title: "お会計" },
     "trash_calendar" => { template: "app_header", title: "ごみカレンダー" }
   }.freeze

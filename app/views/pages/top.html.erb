@@ -45,7 +45,7 @@
       <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="2"></button>
     </div>
     <div class="d-flex flex-column align-items-center">
-      <p class="text-white mb-1 fw-bold">市の情報</p>
+      <p class="text-white mb-1 fw-bold">日常情報</p>
       <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="3"></button>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div class="carousel-inner">
     <!-- AI画面 -->
     <div class="carousel-item active bg1">
-      <p>ようこそ、富岡へ</p>
+      <p>ようこそ、知多半島へ</p>
       <!-- アニメーション -->
       <div class="orbit-container">
         <div class="big-circle"></div>
@@ -67,7 +67,7 @@
         <%= form_with url: ai_ask_path, method: :post, html: { id: "aiForm" } do |f| %>
           <%= f.text_field :message, 
           class: "form-control ai-input", 
-          placeholder: "富岡について質問してみよう", 
+          placeholder: "知多半島について質問してみよう", 
           id: "aiInput" %>
           <!-- マイクアイコン -->
           <span class="material-icons input-icon mic-icon" id="micBtn">mic</span>
@@ -89,7 +89,7 @@
     </div>
     <!-- 天気・ゴミ情報ページ -->
     <div class="carousel-item bg2">
-      <h1>2024年8月31日</h1>
+      <h1>2025年10月30日</h1>
 
       <!-- 天気情報カード -->
       <div class="info-card">
@@ -100,7 +100,7 @@
             </div>
             <div class="flex-grow-1">
               <h5 class="card-title mb-1">今日の天気</h5>
-              <p class="card-text mb-1 fw-bold" style="font-size: 1.1rem;">晴れ・21℃</p>
+              <p class="card-text mb-1 fw-bold" style="font-size: 1.1rem;">晴れ・19℃</p>
               <small class="text-muted">湿度: 45% | 風速: 2m/s</small>
             </div>
           </div>
@@ -127,7 +127,7 @@
       <div class="info-card">
         <div class="card-body">
           <h6 class="card-title">📢 今日のお知らせ</h6>
-          <p class="card-text mb-0">富岡製糸場での特別展示が開催中です</p>
+          <p class="card-text mb-0">東海市での特別展示が開催中です</p>
         </div>
       </div>
     </div>
@@ -138,7 +138,7 @@
       <div class="app-grid">
         <div class="app-item">
           <div class="material-icons app-icon">travel_explore</div>
-          <div class="app-title">富岡観光</div>
+          <div class="app-title">知多半島観光</div>
         </div>
         <div class="app-item">
           <div class="material-icons app-icon">shopping_cart</div>
@@ -146,11 +146,11 @@
         </div>
         <%= link_to complaints_new_path, class: "app-item text-decoration-none" do %>
           <div class="material-icons app-icon">psychology</div>
-          <div class="app-title">富岡の賢者</div>
+          <div class="app-title">知多半島の賢者</div>
         <% end %>
         <div class="app-item">
-          <div class="material-icons app-icon">local_taxi</div>
-          <div class="app-title">愛タクシー</div>
+          <div class="material-icons app-icon">directions_bus</div>
+          <div class="app-title">地域バス</div>
         </div>
         <%= link_to recommendations_path, class: "app-item text-decoration-none" do %>
           <div class="material-icons app-icon">forum</div>
@@ -158,14 +158,12 @@
         <% end %>
         <div class="app-item">
           <div class="material-icons app-icon">explore</div>
-          <div class="app-title">富岡GO</div>
+          <div class="app-title">知多GO</div>
         </div>
       </div>
     </div>
     <!-- 市の情報ページ -->
     <div class="carousel-item bg4">
-      <h1 class="text-dark">市の情報</h1>
-
       <!-- イベントカレンダーボタン -->
       <div class="mb-4">
         <%= link_to city_event_calendar_path, class: "btn btn-primary btn-lg d-flex align-items-center justify-content-center",
@@ -184,7 +182,7 @@
         </div>
         <div class="news-item">
           <div class="news-date">2025/08/28</div>
-          <div class="news-title">富岡製糸場イベント開催のご案内</div>
+          <div class="news-title">太田川イベント開催のご案内</div>
         </div>
         <div class="news-item">
           <div class="news-date">2025/08/27</div>
