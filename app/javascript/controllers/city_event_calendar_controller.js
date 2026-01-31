@@ -39,9 +39,8 @@ export default class extends Controller {
                         cell.appendChild(daySpan);
         
                         const dateObj = dayjs(`${year}-${month}-${dayCounter}`);
-                        const dayOfWeek = dateObj.day(); // 0=日曜,1=月曜,...,6=土曜
+                        const dayOfWeek = dateObj.day(); 
         
-                        // ゴミラベル選別
                         let noteHTML = '';
                         switch(dayOfWeek) {
                             case 0: // 日曜日
@@ -427,11 +426,9 @@ export default class extends Controller {
             const deltaX = endX - startX;
             const deltaY = endY - startY;
         
-            // モーダルが開いている場合は右・左スワイプは無視
             const offcanvasInstance = bootstrap.Offcanvas.getInstance(halfModal);
             const modalOpen = offcanvasInstance && offcanvasInstance._isShown;
         
-            // 下スワイプはモーダル内で処理
             if (modalOpen && deltaY > 100 && Math.abs(deltaY) > Math.abs(deltaX)) {
                 offcanvasInstance.hide();
                 return;

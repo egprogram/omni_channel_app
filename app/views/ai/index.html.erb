@@ -3,68 +3,56 @@
 
 <!-- TOP_bar -->
 <nav class="navbar fixed-top" style="height: 56px; background: transparent;">
-  <div class="container d-flex justify-content-between align-items-center">
+<div class="container d-flex justify-content-between align-items-center">
     <!-- 左側：ロゴ＋タイトル -->
     <div class="d-flex align-items-center gap-2">
-      <h5 class="mb-0 fw-bold text-white">β版</h5>
+    <h5 class="mb-0 beta-ban">β版</h5>
     </div>
-    <!-- 右側：履歴ボタン -->
-    <!-- 右側：通知ボタン -->
-    <div class="d-flex align-items-center gap-2">
-      <button type="button" aria-label="履歴"
-        style="
-          background-color: rgba(255, 255, 255, 0.2);
-          border: none;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        "
-      >
-        <span class="material-icons" style="color: white; font-size: 24px;">history</span>
-      </button>
-    </div>
-  </div>
 </nav>
 
 <div class="container py-5 mt-5" style="padding-bottom: 100px;">
-        <!-- チャットメッセージの例 -->
-<div class="chat-message user">
-    <div class="message-bubble">
-        <%= @message %>
+    <!-- チャットメッセージの例 -->
+    <div class="chat-message user">
+        <div class="message-bubble">
+            <%= @message %>
+        </div>
     </div>
+
+    <div class="chat-message ai">
+        <div class="message-bubble">
+            なるほど... マップで探してみるのはいかがでしょうか？
+        </div>
+    </div>
+
+    <div class="chat-message ai">
+        <div class="message-bubble" onclick="window.location.href='http://192.168.0.13:3000/maps';" style="cursor: pointer;">
+            <div>マップアプリはいかがでしょうか？</div>
+            <div class="card p-2" style="background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-width: 360px;">
+                <div class="d-flex justify-content-start align-items-center gap-2">
+                 <a href="<%= maps_path %>"></a>
+                    <span class="material-icons stroke-black  text-danger" style="font-size: 28px;">place</span>
+                    <div>知多半島観光MAP</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div class="chat-message ai">
-    <div class="message-bubble">
-        こんにちは！何か質問がありますか？
-    </div>
-</div>
+<div>
+    <form id="aiForm" action="/ai_ask" method="post" class="d-flex align-items-center ai-input-wrapper-ai">
+        <!-- 入力 -->
+        <input 
+            type="text" 
+            name="message" 
+            id="aiInput" 
+            class="form-control ai-input" 
+            placeholder="知多半島について質問してみよう"
+        >
 
-<div class="chat-message user">
-    <div class="message-bubble">
-        今日の天気は？
-    </div>
-</div>
-
-<div class="chat-message ai">
-    <div class="message-bubble">
-        今日の東京は晴れの予報です。
-    </div>
-</div>
-</div>
-
-<!-- 記入欄 -->
-<div class="chat-input-container">
-    <input type="text" placeholder="質問してみよう..." class="chat-input">
-    <span class="material-icons mic-icon">mic</span>
-    <span class="material-icons send-icon">send</span>
+        <!-- 送信アイコン -->
+        <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
+    </form>
 </div>
 
 <!-- 警告 -->
