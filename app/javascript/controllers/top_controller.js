@@ -3,8 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="top"
 export default class extends Controller {
   connect() {
-    console.log("Top controller connected ✅")
-
     // ボタンや入力欄を取得
     const sendBtn = document.getElementById('sendBtn')
     const aiInput = document.getElementById('aiInput')
@@ -28,14 +26,17 @@ export default class extends Controller {
       }
     })
 
-    // マイク機能
-    micBtn?.addEventListener('click', () => {
-      alert('音声入力機能は現在開発中です')
-    })
-
     // Enterキーでの送信
     aiInput?.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') sendBtn.click()
     })
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var carouselEl = document.querySelector('#swipeCarousel');
+      var carousel = new bootstrap.Carousel(carouselEl, {
+          touch: true,      
+          interval: false   
+      });
+    });
   }
 }

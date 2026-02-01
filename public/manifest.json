@@ -1,0 +1,23 @@
+{
+    "name": "SIR-Q",
+    "short_name": "SIR-Q",
+    "icons": [
+        {
+        "src": "/icon-192.jpg",
+        "type": "image/jpg",
+        "sizes": "192x192"
+        },
+        {
+        "src": "/icon-512.jpg",
+        "type": "image/jpg",
+        "sizes": "512x512",
+        "purpose": "maskable"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "scope": "/",
+    "description": "SIR-Q App.",
+    "theme_color": "red",
+    "background_color": "red"
+}

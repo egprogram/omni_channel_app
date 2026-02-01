@@ -1,39 +1,82 @@
 <!-- app/views/maps/index.html.erb -->
-<% content_for :header_title do %>
-  <%= @header_title %>
-<% end %>
-<div data-controller="maps" class="map-page">
+<div data-controller="map" class="map-page">
   <!-- 地図表示エリア -->
-  <div data-tomioka-map-target="map" id="map"></div>
-
-  <!-- 検索ボックス -->
-  <div id="searchBox">
-    <span class="material-icons search-icon">search</span>
-    <input type="text"
-           data-tomioka-map-target="searchInput"
-           placeholder="観光スポットを検索" />
-  </div>
+  <div data-map-target="map" id="map"></div>
 
   <!-- 現在地ボタン -->
-  <div class="locate-btn"
-       data-tomioka-map-target="locateBtn"
-       data-action="click->tomioka-map#getCurrentLocation"
-       title="現在地へ移動">
-    <span class="material-icons" style="color: gray;">my_location</span>
+  <div class="locate-btn" data-map-target="locateBtn" data-action="click->map#getCurrentLocation">
+    <span class="material-icons">my_location</span>
   </div>
 
   <!-- リスト表示ボタン -->
-  <div class="list-btn"
-       data-tomioka-map-target="listBtn"
-       data-action="click->tomioka-map#showSpotList"
-       title="リストを表示">
-    <span class="material-icons" style="color: gray;">list</span>
+  <div class="list-btn" data-map-target="listBtn" data-action="click->map#showSpotList">
+    <span class="material-icons">list</span>
   </div>
 
   <!-- 横スワイプカード -->
   <div class="swiper-container">
-    <div class="swiper-wrapper" data-tomioka-map-target="spotCards"></div>
+    <div class="swiper-wrapper" data-map-target="spotCards"></div>
   </div>
 </div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- フッター -->
+<footer class="footer-box">
+    <!-- ホーム -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= root_path %>" class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
+            <span class="material-icons stroke-black" style="font-size: 28px;">home</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">ホーム</div>
+        </a>
+    </div>
+
+    <!-- マップ -->
+    <div style="
+        border-radius: 25px;
+        background: rgba(128, 128, 128, 0.3);  
+        backdrop-filter: blur(6px);
+        height: 55px;
+        width: 60px;   
+        -webkit-backdrop-filter: blur(6px); 
+        display: inline-block;"
+        class="d-flex justify-content-center">
+        <a href="<%= maps_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+             <span class="material-icons " style="font-size: 28px; color: red">place</span>
+            <div style="font-size: 12px; color: red; font-weight: bold;">マップ</div>
+        </a>
+    </div>
+    
+    <!-- お会計 -->
+    <a href="<%= cash_path %>" 
+    class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
+    style="background-color: red; width: 70px; height: 60px; 
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            margin-top: -20px;
+            z-index: 10;       
+            position: relative;">
+        <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
+        <div style="font-size: 12px; color: white;">お会計</div>
+    </a>
+    
+    <!-- クーポン -->
+    <div style="width: 60px;" class="d-flex justify-content-center">
+        <a href="<%= coupons_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+        </a>
+    </div>
+
+    <!-- 設定 -->
+    <div style="width: 63px;" class="d-flex justify-content-center">
+        <a href="<%= settings_path %>" 
+            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+            style="height: 56px; background-color: transparent;">
+            <span class="material-icons stroke-black" style="font-size: 28px;">account_circle</span>
+            <div style="font-size: 12px; color: Black; font-weight: bold;">アカウント</div>
+        </a>
+    </div>
+</footer> 

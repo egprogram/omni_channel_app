@@ -1,0 +1,136 @@
+/* 全体背景画像 */
+.background-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('/icon.png') center/cover no-repeat;
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+}
+
+/* チャット入力欄 */
+.chat-input-container {
+    position: fixed;
+    bottom: 150px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    padding: 8px 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    max-width: 1000px;   
+    width: 90%;  
+    z-index: 1100;
+}
+.chat-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+.chat-input-container .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    transition: color 0.2s ease;
+}
+.chat-input-container .material-icons:hover {
+    color: white;
+}
+
+/* チャットメッセージ */
+.chat-message {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.chat-message.user {
+    justify-content: flex-end; /* 右寄せ */
+}
+
+.chat-message.ai {
+    justify-content: flex-start; /* 左寄せ */
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 8px 12px;
+    border-radius: 8px; 
+    background: rgba(255, 255, 255, 0.01); 
+    backdrop-filter: blur(12px);           
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12), 
+                0 4px 12px rgba(0,0,0,0.3);
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/*プロンプト入力*/
+.ai-input-wrapper-ai {
+    gap: 8px;
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 420px);
+    z-index: 2;
+  
+    display: flex;
+    align-items: center;
+  
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.12),
+      0 4px 12px rgba(0,0,0,0.3);
+  
+    border-radius: 12px;
+    padding: 6px 10px;
+  }
+
+
+/* SIR-Q警告文 */
+.chat-warning {
+    position: fixed;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    width: 90%;
+    z-index: 1050;
+    background: rgba(0,0,0,0.3); 
+    padding: 4px 8px;
+    border-radius: 16px;
+}
+
+/* フッター部分 */
+.footer-box {
+    width: 95%;
+    position: fixed;           
+    bottom: 15px;              
+    left: 50%;                 
+    transform: translateX(-50%); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 1rem;   
+    border-radius: 60px;  
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(12px);           
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12), 
+                0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000; 
+}

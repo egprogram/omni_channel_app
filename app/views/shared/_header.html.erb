@@ -1,17 +1,34 @@
-<!-- 固定トップバー -->
-<nav class="navbar navbar-light bg-light fixed-top shadow-sm" style="height: 56px;">
-  <div class="container d-flex justify-content-between align-items-center">
-    <!-- 左側：ロゴ＋タイトル -->
-    <div class="d-flex align-items-center gap-2">
-      <img src="https://www.city.tomioka.lg.jp/www/contents/1000000002233/simple/131210230644_0.jpg"
-          alt="富岡市ロゴ"
-          style="width: 40px; height: 40px; object-fit: contain;">
-      <h5 class="mb-0 fw-bold"><%= link_to "β版", root_path, class: "text-decoration-none text-reset" %></h5>
+<%# 各アプリのヘッダー %>
+<nav class="navbar navbar-light bg-light fixed-top shadow-sm" style="height:56px;">
+  <div class="container d-flex align-items-center justify-content-between" style="height:100%; padding: 0 10px;">
+    
+    <!-- 左端：戻るボタン -->
+    <a href="<%= root_path %>" style="text-decoration:none;">
+      <div style="
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          border: 0.5px solid rgba(0,0,0,0.3);
+          border-radius: 50%;
+          background: rgba(255,255,255,0.01);
+          box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+      ">
+        <span class="material-icons" style="font-size:30px; color:red;">chevron_left</span>
+      </div>
+    </a>
+
+    <!-- 中央：タイトル -->
+    <h5 class="mb-0 fw-bold text-center flex-grow-1" style="margin:0;">
+      <%= app_header_title %>
+    </h5>
+
+    <!-- 右端：アイコンや空スペース -->
+    <div style="width:40px;">
+      <%# ここに右端のアイコンを置くことも可能 %>
     </div>
 
-    <!-- 右側：通知ボタン -->
-    <button type="button" class="btn btn-link p-0 text-secondary" aria-label="お知らせ">
-      <span class="material-icons" style="font-size: 24px; color: currentColor;">notifications</span>
-    </button>
   </div>
 </nav>
