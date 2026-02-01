@@ -49,8 +49,8 @@
     color: #555;
 }
 .offcanvas-bottom {
-        height: 98vh !important;
-        max-height: 98vh !important;
+        height: 80vh !important;
+        max-height: 80vh !important;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }

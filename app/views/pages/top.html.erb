@@ -1,263 +1,337 @@
-<!-- TOP_bar -->
-<nav class="navbar fixed-top" style="height: 56px; background: transparent;">
-  <div class="container d-flex justify-content-between align-items-center">
-    <!-- 左側：ロゴ＋タイトル -->
-    <div class="d-flex align-items-center gap-2">
-      <h5 class="mb-0 fw-bold text-white">β版</h5>
-    </div>
-    <!-- 右側：通知ボタン -->
-    <div class="d-flex align-items-center gap-2">
-      <button type="button" aria-label="お知らせ"
-        style="
-          background-color: rgba(255, 255, 255, 0.2);
-          border: none;
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          padding: 0;
-          transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-        "
-      >
-        <span class="material-icons" style="color: white; font-size: 24px;">notifications</span>
-      </button>
-    </div>
-</nav>
-
-<!-- メインカルーセル -->
-<div id="swipeCarousel" class="carousel slide carousel-fade" data-bs-ride="false" data-bs-touch="true">
-  <!-- カルーセルインジケーター -->
-  <div class="carousel-indicators d-flex justify-content-around w-100 m-0">
-    <div class="d-flex flex-column align-items-center">
-      <p class="text-white mb-1 fw-bold">AI</p>
-      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="0" class="active"></button>
-    </div>
-    <div class="d-flex flex-column align-items-center">
-      <p class="text-white mb-1 fw-bold">生活ナビ</p>
-      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="1"></button>
-    </div>
-    <div class="d-flex flex-column align-items-center">
-      <p class="text-white mb-1 fw-bold">アプリ</p>
-      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="2"></button>
-    </div>
-    <div class="d-flex flex-column align-items-center">
-      <p class="text-white mb-1 fw-bold">市の情報</p>
-      <button type="button" data-bs-target="#swipeCarousel" data-bs-slide-to="3"></button>
-    </div>
-  </div>
-  <!-- カルーセルコンテンツ -->
-  <div class="carousel-inner">
-    <!-- AI画面 -->
-    <div class="carousel-item active bg1">
-      <p>ようこそ、富岡へ</p>
-      <!-- アニメーション -->
-      <div class="orbit-container">
-        <div class="big-circle"></div>
-        <div class="orbit">
-          <div class="small-circle"></div>
+<div class="top-page">
+    <!-- top_bar -->
+    <nav class="navbar fixed-top" style="height: 56px; background: transparent;">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- 左側：ロゴ＋タイトル -->
+        <div class="d-flex align-items-center gap-2">
+        <h5 class="mb-0 beta-ban">β版</h5>
         </div>
-      </div>
-      <div class="mt-5"></div>
-      <!-- AI入力エリア -->
-      <div class="position-relative ai-input-container">
-        <%= form_with url: ai_ask_path, method: :post, html: { id: "aiForm" } do |f| %>
-          <%= f.text_field :message, 
-          class: "form-control ai-input", 
-          placeholder: "富岡について質問してみよう", 
-          id: "aiInput" %>
-          <!-- マイクアイコン -->
-          <span class="material-icons input-icon mic-icon" id="micBtn">mic</span>
-          <!-- 送信アイコン -->
-          <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
-          <% end %>
-          <!-- とりま、動かすため-->
-          <script>
-            document.addEventListener("DOMContentLoaded", () => {
-              const sendBtn = document.getElementById("sendBtn");
-              const form = document.getElementById("aiForm");
+    </nav>
 
-              sendBtn.addEventListener("click", () => {
-                form.submit();
-              });
-            });
-          </script>  
-      </div>
+    <!-- ページネーション -->
+    <div class="top-icons">
+        <div class="icon" data-index="0">SIR-Q</div>
+        <div class="icon" data-index="1">生活</div>
+        <div class="icon" data-index="2">アプリ</div>
+        <div class="icon" data-index="3">日常</div>
     </div>
-    <!-- 天気・ゴミ情報ページ -->
-    <div class="carousel-item bg2">
-      <h1>2024年8月31日</h1>
 
-      <!-- 天気情報カード -->
-      <div class="info-card">
-        <div class="card-body">
-          <div class="d-flex align-items-center">
-            <div class="me-3 d-flex align-items-center justify-content-center" style="min-width: 60px;">
-              <div style="font-size: 3rem; line-height: 1;">☀️</div>
+    <!-- メインカルーセル -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+
+            <!-- AI -->
+            <div class="swiper-slide">
+                <div class="ai-page">
+                    <%= form_with url: ai_ask_path, method: :post, html: { id: "aiForm", class: "d-flex align-items-center ai-input-wrapper " } do |f| %>
+
+                        <!-- 入力 -->
+                        <%= f.text_field :message, 
+                            class: "form-control ai-input", 
+                            placeholder: "知多半島について質問してみよう", 
+                            id: "aiInput" %>
+
+                        <!-- 送信アイコン -->
+                        <span class="material-icons input-icon send-icon" id="sendBtn">send</span>
+
+                    <% end %>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                    const sendBtn = document.getElementById("sendBtn");
+                    const form = document.getElementById("aiForm");
+                    const input = document.getElementById("aiInput");
+
+                    sendBtn.addEventListener("click", (e) => {
+                        // 空欄なら送信させない
+                        if (!input.value.trim()) {
+                        e.preventDefault(); // フォーム送信を止める
+                        alert("メッセージを入力してください"); // 任意で注意
+                        return;
+                        }
+
+                        form.submit();
+                    });
+
+                    // 任意：空欄ならボタン非活性化
+                    input.addEventListener("input", () => {
+                        if (input.value.trim()) {
+                        sendBtn.style.opacity = "1";      // 有効化
+                        sendBtn.style.pointerEvents = "auto";
+                        } else {
+                        sendBtn.style.opacity = "0.5";    // 無効化っぽく
+                        sendBtn.style.pointerEvents = "none";
+                        }
+                    });
+
+                    // ページロード時に初期状態チェック
+                    if (!input.value.trim()) {
+                        sendBtn.style.opacity = "0.5";
+                        sendBtn.style.pointerEvents = "none";
+                    }
+                    });
+                </script>
             </div>
-            <div class="flex-grow-1">
-              <h5 class="card-title mb-1">今日の天気</h5>
-              <p class="card-text mb-1 fw-bold" style="font-size: 1.1rem;">晴れ・21℃</p>
-              <small class="text-muted">湿度: 45% | 風速: 2m/s</small>
+
+            <!-- 生活 -->
+            <div class="swiper-slide">
+                <div class="life-page">
+                    <p class="ai-page-today" id="aiToday">1月18日(日)</p>
+                    <p class="ai-page-time" id="aiTime">21:00</p>
+                    <script>
+                        document.addEventListener("turbo:load", () => {
+                        const timeEl = document.getElementById("aiTime");
+                        const todayEl = document.getElementById("aiToday");
+
+                        function updateDateTime() {
+                            const now = new Date();
+
+                            const hours = now.getHours().toString().padStart(2, '0');
+                            const minutes = now.getMinutes().toString().padStart(2, '0');
+                            timeEl.textContent = `${hours}:${minutes}`;
+
+                            const weekDays = ["日", "月", "火", "水", "木", "金", "土"];
+                            const month = now.getMonth() + 1; // 0始まりなので +1
+                            const date = now.getDate();
+                            const day = weekDays[now.getDay()];
+                            todayEl.textContent = `${month}月${date}日(${day})`;
+                        }
+
+                        updateDateTime();
+
+                        setInterval(updateDateTime, 60000);
+                        });
+                    </script>
+                    <div class="card top-page-card p-1 d-flex align-items-start" style="max-width: 500px; margin: 20px auto;">
+                        <div class="d-flex align-items-center">
+                            <!-- アイコン -->
+                            <div class="me-3 d-flex align-items-center justify-content-center" style="min-width: 60px; font-size: 3rem; line-height: 1;">
+                            ☀️
+                            </div>
+                            <!-- テキスト -->
+                            <div>
+                                <h5 class="card-title mb-1 fw-bold top-text-b">今日の天気</h5>
+                                <p class="card-text mb-1 text-black" style="font-size: 1.1rem;">晴れ・9℃</p>
+                                <small class="text-black-70">湿度: 45% | 風速: 2m/s</small>
+                            </div>
+                        </div>
+                    </div>
+                    <%= link_to trash_calendar_path do %>
+                    <div class="card top-page-card p-1 d-flex align-items-start" style="max-width: 500px; margin: 20px auto;">
+                        <div class="d-flex align-items-center">
+                            <!-- アイコン -->
+                            <div class="me-3 d-flex align-items-center justify-content-center" style="min-width: 60px; font-size: 3rem; line-height: 1;">
+                            🔥
+                            </div>
+                            <!-- テキスト -->
+                            <div>
+                                <h5 class="card-title mb-1 fw-bold top-text-b">明日のゴミ</h5>
+                                <p class="card-text mb-1 text-black" style="font-size: 1.1rem;">可燃ゴミ</p>
+                                <small class="text-black-70">8:00までに出してください</small>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div> 
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ゴミ情報カード -->
-      <div class="info-card">
-        <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h5 class="card-title mb-0">今日のゴミ</h5>
-            <span class="badge bg-danger fs-6">🔥 可燃ゴミ</span>
-          </div>
-          <p class="card-text mb-3">朝8時30分までに出してください</p>
-          <%= link_to trash_calendar_path,
-            class: "btn btn-outline-primary btn-sm w-100 text-decoration-none" do %>
-            <span class="material-icons me-1" style="font-size: 18px;">calendar_today</span>
-            ゴミカレンダーを見る
-          <% end %>
-        </div>
-      </div>
+            <!-- アプリ -->
+            <div class="swiper-slide">
+                <div class="app-page">
+                    <h2 class="app-page-name">アプリケーション</h2>
+                    <div class="card app-page-card p-3" style="height:50%; max-width:500px; margin:20px auto;">
+                    <div class="app-grid">
+                        <div class="app-item">
+                        <%= link_to recommendations_path do %> 
+                            <div class="app-icon osusume_icon"></div>
+                        <% end %>
+                            <p class="app-label">おすすめ掲示板</p>
+                        </div>
 
-      <!-- 今日のお知らせ -->
-      <div class="info-card">
-        <div class="card-body">
-          <h6 class="card-title">📢 今日のお知らせ</h6>
-          <p class="card-text mb-0">富岡製糸場での特別展示が開催中です</p>
+                        <div class="app-item">
+                        <%= link_to complaints_new_path do %>
+                            <div class="app-icon kenzya_icon"></div>
+                        <% end %>
+                            <p class="app-label">知多半島の賢者</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 日常 -->
+            <div class="swiper-slide">
+                <div class="everyday-page">
+                    <%= link_to city_event_calendar_path do %>
+                    <div class="card top-page-card p-1 d-flex align-items-start" style="max-width: 500px; margin: 20px auto;">
+                        <div class="d-flex align-items-center">
+                            <!-- アイコン -->
+                            <div class="me-3 d-flex align-items-center justify-content-center" style="min-width: 60px; font-size: 3rem; line-height: 1;"> 
+                                🗓 
+                            </div>
+                            <!-- テキスト -->
+                            <div>
+                                <h5 class="card-title mb-1 top-text-b">イベントカレンダー</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                    <p class="near-event">近日開催</p>
+                    <div class="card top-page-card p-1 d-flex"style="max-width: 500px; margin: 5px auto;">
+                        <!-- テキスト -->
+                        <div class="text-start p-1">
+                            <h5 class="card-title mb-1 top-text-b">本日のイベント</h5>
+                            <p class="card-text mb-1 text-black" style="font-size: 1.1rem;">観光まちづくりシンポジウム</p>
+                            <small class="text-black-70">13:00 開演 </small>
+                        </div>
+                    </div>
+                    <div class="card top-page-card p-1 d-flex"style="max-width: 500px; margin: 5px auto;">
+                        <!-- テキスト -->
+                        <div class="text-start p-1">
+                            <h5 class="card-title mb-1 top-text-b">明日のイベント</h5>
+                            <p class="card-text mb-1 text-black" style="font-size: 1.1rem;">ベビーサロン(保健福祉センター)</p>
+                            <small class="text-black-70">東海市で開催</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
     </div>
-    <!-- アプリケーションページ -->
-    <div class="carousel-item bg3">
-      <h1>アプリケーション</h1>
-      <!-- アプリグリッド -->
-      <div class="app-grid">
-        <div class="app-item">
-          <div class="material-icons app-icon">travel_explore</div>
-          <div class="app-title">富岡観光</div>
-        </div>
-        <div class="app-item">
-          <div class="material-icons app-icon">shopping_cart</div>
-          <div class="app-title">地域激安情報</div>
-        </div>
-        <%= link_to complaints_new_path, class: "app-item text-decoration-none" do %>
-          <div class="material-icons app-icon">psychology</div>
-          <div class="app-title">富岡の賢者</div>
-        <% end %>
-        <div class="app-item">
-          <div class="material-icons app-icon">local_taxi</div>
-          <div class="app-title">愛タクシー</div>
-        </div>
-        <%= link_to recommendations_path, class: "app-item text-decoration-none" do %>
-          <div class="material-icons app-icon">forum</div>
-          <div class="app-title">おすすめ掲示板</div>
-        <% end %>
-        <div class="app-item">
-          <div class="material-icons app-icon">explore</div>
-          <div class="app-title">富岡GO</div>
-        </div>
-      </div>
-    </div>
-    <!-- 市の情報ページ -->
-    <div class="carousel-item bg4">
-      <h1 class="text-dark">市の情報</h1>
 
-      <!-- イベントカレンダーボタン -->
-      <div class="mb-4">
-        <%= link_to city_event_calendar_path, class: "btn btn-primary btn-lg d-flex align-items-center justify-content-center",
-          style: "padding: 12px 30px; border-radius: 25px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); gap: 8px;" do %>
-          <span class="material-icons" style="font-size: 24px; line-height: 1;">event</span>
-          <span>イベントカレンダー</span>
-        <% end %>
-      </div> 
-
-      <!-- お知らせリスト -->
-      <div class="news-list">
-        <h5 class="text-dark mb-3">最新のお知らせ</h5>
-        <div class="news-item">
-          <div class="news-date">2025/08/29</div>
-          <div class="news-title">市役所からの重要なお知らせ</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">2025/08/28</div>
-          <div class="news-title">富岡製糸場イベント開催のご案内</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">2025/08/27</div>
-          <div class="news-title">道路工事による交通規制のお知らせ</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">2025/08/26</div>
-          <div class="news-title">健康診断の実施について</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- フッター -->
-  <footer class="footer-box">
-      <!-- ホーム -->
-      <div style="
-          border-radius: 25px;
+    <!-- bottom_bar -->
+    <footer class="footer-box">
+        <!-- ホーム -->
+        <div style="
+            border-radius: 25px;
             background: rgba(128, 128, 128, 0.3);    
-          backdrop-filter: blur(6px);
-          height: 55px;
-          width: 60px;   
-          -webkit-backdrop-filter: blur(6px); 
-          display: inline-block;"
-          class="d-flex justify-content-center">
-          <a href="<%= root_path %>" class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
-              <span class="material-icons " style="font-size: 28px; color: red">home</span>
-              <div style="font-size: 12px; color: red;; font-weight: bold;">ホーム</div>
-          </a>
-      </div>
-
-      <!-- マップ -->
-      <div style="width: 60px;" class="d-flex justify-content-center">
-          <a href="<%= maps_path %>" 
-              class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-              style="height: 56px; background-color: transparent;">
-              <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
-              <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
-          </a>
-      </div>
-      
-      <!-- お会計 -->
-      <a href="<%= cash_path %>" 
-      class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
-      style="background-color: red; width: 70px; height: 60px; 
-              border-radius: 20px;
-              box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-              margin-top: -20px;
-              z-index: 10;       
-              position: relative;">
-          <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
-          <div style="font-size: 12px; color: white;">お会計</div>
-      </a>
-
-
-    <!-- クーポン -->
-    <div style="width: 60px;" class="d-flex justify-content-center">
-        <a href="<%= coupons_path %>" 
-            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-            style="height: 56px; background-color: transparent;">
-            <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
-            <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+            backdrop-filter: blur(6px);
+            height: 55px;
+            width: 60px;   
+            -webkit-backdrop-filter: blur(6px); 
+            display: inline-block;"
+            class="d-flex justify-content-center">
+            <div class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0">
+                <span class="material-icons " style="font-size: 28px; color: red">home</span>
+                <div style="font-size: 12px; color: red;; font-weight: bold;">ホーム</div>
+            </div>
+        </div>
+        <!-- マップ -->
+        <div style="width: 60px;" class="d-flex justify-content-center">
+            <a href="<%= maps_path %>" 
+                class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+                style="height: 56px; background-color: transparent;">
+                <span class="material-icons stroke-black" style="font-size: 28px;">place</span>
+                <div style="font-size: 12px; color: Black; font-weight: bold;">マップ</div>
+            </a>
+        </div>
+        <!-- お会計 -->
+        <a href="<%= cash_path %>" 
+        class="btn text-white d-flex flex-column align-items-center justify-content-center p-0"
+        style="background-color: red; width: 70px; height: 60px; 
+                border-radius: 20px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+                margin-top: -20px;
+                z-index: 10;       
+                position: relative;">
+            <span class="material-icons" style="font-size: 28px; color: white;">qr_code_scanner</span>
+            <div style="font-size: 12px; color: white;">お会計</div>
         </a>
-    </div>
-
-    <!-- 設定 -->
-    <div style="width: 63px;" class="d-flex justify-content-center">
-        <a href="<%= settings_path %>" 
-            class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
-            style="height: 56px; background-color: transparent;">
-            <span class="material-icons stroke-black" style="font-size: 28px;">account_circle</span>
-            <div style="font-size: 12px; color: Black; font-weight: bold;">アカウント</div>
-        </a>
-    </div>
-  </footer> 
+        <!-- クーポン -->
+        <div style="width: 60px;" class="d-flex justify-content-center">
+            <a href="<%= coupons_path %>" 
+                class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+                style="height: 56px; background-color: transparent;">
+                <span class="material-icons stroke-black" style="font-size: 28px;">sell</span>
+                <div style="font-size: 12px; color: Black; font-weight: bold;">クーポン</div>
+            </a>
+        </div>
+        <!-- 設定 -->
+        <div style="width: 63px;" class="d-flex justify-content-center">
+            <a href="<%= settings_path %>" 
+                class="btn text-center text-secondary d-flex flex-column align-items-center justify-content-center p-0"
+                style="height: 56px; background-color: transparent;">
+                <span class="material-icons stroke-black" style="font-size: 28px;">account_circle</span>
+                <div style="font-size: 12px; color: Black; font-weight: bold;">アカウント</div>
+            </a>
+        </div>
+    </footer> 
 </div>
+
+
+<script>
+  // Swiper がロード済みかチェック
+  if (typeof Swiper === "undefined") {
+    const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js";
+      script.onload = () => {
+        console.log("Swiper 読み込み完了");
+        initSwiper(); // 読み込み完了したら再度初期化
+      };
+      document.head.appendChild(script);
+  }
+
+  // Turbo対応の初期化ガード
+  if (!window.topPageSwiperInitialized) {
+    window.topPageSwiperInitialized = true;
+
+    // 上部アイコン
+    const icons = document.querySelectorAll('.top-icons .icon');
+
+    // Swiper 初期化
+    const swiper = new Swiper('.swiper', {
+      loop: true,           
+      slidesPerView: 1,      
+      spaceBetween: 0,       
+      pagination: {
+        clickable: true,
+        renderBullet: function (index, className) {
+          const labels = ['AI','生活ナビ','アプリ','日常情報'];
+          return '<span class="' + className + '">' + labels[index] + '</span>';
+        },
+      },
+      simulateTouch: true,   
+      touchRatio: 1,         
+    });
+
+    // アイコンの active 更新
+    function updateActiveIcon(index) {
+      icons.forEach(i => i.classList.remove('active'));
+      icons[index].classList.add('active');
+    }
+
+    // 初期状態のアイコンに active を付与
+    updateActiveIcon(swiper.realIndex);
+
+    // アイコンクリック時
+    icons.forEach(icon => {
+      icon.addEventListener('click', () => {
+        const index = parseInt(icon.dataset.index);
+        swiper.slideToLoop(index); 
+        updateActiveIcon(index);
+      });
+    });
+
+    // スライド変更時にアイコンを更新
+    swiper.on('slideChange', () => {
+      updateActiveIcon(swiper.realIndex); 
+    });
+    
+    const timeEl = document.getElementById("aiTime");
+
+    function updateTime() {
+      const now = new Date();
+      // 時間を "HH:MM" 形式で表示
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      timeEl.textContent = `${hours}:${minutes}`;
+    }
+
+    // 初期表示
+    updateTime();
+
+    // 1分ごとに更新
+    setInterval(updateTime, 60000);
+  }
+</script>
+
