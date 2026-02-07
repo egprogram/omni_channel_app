@@ -45,7 +45,7 @@ export default class extends Controller {
                         switch(dayOfWeek) {
                             case 0: // 日曜日
                                 noteHTML = `<span style="
-                                     background-color: #d32f2f;
+                                    background-color: #d32f2f;
                                     color: white;
                                     padding: 2px 5px;
                                     border-radius: 4px;
@@ -55,47 +55,11 @@ export default class extends Controller {
                                     white-space: normal;
                                     word-break: break-word;
                                     max-width: 100%;
-                                ">企画展</span>
-                                <br>
-                                <span style="
-                                    background-color: #388e3c;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">美術館</span> 
-                                <span style="
-                                    background-color: #2f3ad3;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">非核平和展</span> 
+                                ">観賞</span>
                                 `;
                                 break;
                             case 1: // 月曜日
-                                noteHTML = `<span style="
-                                     background-color: #d32f2f;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">企画展</span>
+                                noteHTML = `
                                 <span style="
                                     background-color: #388e3c;
                                     color: white;
@@ -107,46 +71,11 @@ export default class extends Controller {
                                     white-space: normal;
                                     word-break: break-word;
                                     max-width: 100%;
-                                ">美術館</span> 
-                                <span style="
-                                    background-color: #2f3ad3;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">非核平和展</span> 
+                                ">祭り</span> 
                                 `;
                                 break;
                             case 2:
-                                noteHTML = `<span style="
-                                     background-color: #d32f2f;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">企画展</span>
-                                <span style="
-                                    background-color: #388e3c;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">美術館</span> 
+                                noteHTML = `
                                 <span style="
                                     background-color: #2f3ad3;
                                     color: white;
@@ -158,24 +87,13 @@ export default class extends Controller {
                                     white-space: normal;
                                     word-break: break-word;
                                     max-width: 100%;
-                                ">非核平和展</span> 
+                                ">子育て</span> 
                                 `;
                                 break;
                             case 4:
-                            noteHTML = `<span style="
-                                     background-color: #d32f2f;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">企画展</span>
+                            noteHTML = `
                                 <span style="
-                                    background-color: #388e3c;
+                                    background-color: black;
                                     color: white;
                                     padding: 2px 5px;
                                     border-radius: 4px;
@@ -185,98 +103,9 @@ export default class extends Controller {
                                     white-space: normal;
                                     word-break: break-word;
                                     max-width: 100%;
-                                ">美術館</span> 
-                                <span style="
-                                    background-color: #2f3ad3;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">非核平和展</span> 
+                                ">相談</span> 
                                 `;
                                 break;
-                            case 5:
-                            noteHTML = `<span style="
-                                     background-color: #d32f2f;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">企画展</span>
-                                <span style="
-                                    background-color: #388e3c;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">美術館</span> 
-                                <span style="
-                                    background-color: #2f3ad3;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">非核平和展</span> 
-                                `;
-                                break;
-                            case 6: // 土曜日
-                            noteHTML = `<span style="
-                                     background-color: #d32f2f;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">企画展</span>
-                                <span style="
-                                    background-color: #388e3c;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">美術館</span> 
-                                <span style="
-                                    background-color: #2f3ad3;
-                                    color: white;
-                                    padding: 2px 5px;
-                                    border-radius: 4px;
-                                    font-weight: 600;
-                                    font-size: 0.4rem;
-                                    display: inline-block;
-                                    white-space: normal;
-                                    word-break: break-word;
-                                    max-width: 100%;
-                                ">非核平和展</span> 
-                                `;
                                 break;
                         }
         
@@ -305,17 +134,16 @@ export default class extends Controller {
                                         <div class="row g-2">
                                             <!-- 左側の25%は写真 -->
                                             <div class="col-3">
-                                                <img src="https://www.library-tomioka.annexis.jp/cmsfiles/contents/0000000/138/6.jpg" alt="企画展の写真" class="img-fluid rounded-3">
+                                                <img src="https://www.city.tokai.aichi.jp/_res/projects/default_project/_page_/001/006/952/2052-9.jpg" alt="企画展の写真" class="img-fluid rounded-3">
                                             </div>
     
                                             <!-- 右側の75%はテキスト -->
                                             <div class="col-9">
                                                 <!-- タイトル -->
-                                                <p class="card-title mb-1 fw-bold">「鳥と植物」企画展</p>
+                                                <p class="card-title mb-1 fw-bold">第14回子ども芸能発表会</p>
                                                 <!-- 内容 -->
                                                 <p class="card-text mb-0">
-                                                    鳥と植物の魅力ある本を集めてみました。
-                                                    展示している図書は借りることができますので、この機会にぜひ読んでみてください。
+                                                    子どもたちが日頃取り組んでいる文化活動や伝統芸能などの発表を行う「子ども芸能発表会」を開催します。
                                                 </p>
                                             </div>
                                         </div>
@@ -324,17 +152,17 @@ export default class extends Controller {
                                         <div class="row g-2">
                                             <!-- 左側の25%は写真 -->
                                             <div class="col-3">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDSRGwbv6ozL77UK0kAeMjChs8rU2NprmJgA&s" alt="企画展の写真" class="img-fluid rounded-3">
+                                                <img src="https://www.city.tokai.aichi.jp/_res/projects/default_project/_page_/001/007/863/torichiri2.jpg" alt="企画展の写真" class="img-fluid rounded-3">
                                             </div>
     
                                             <!-- 右側の75%はテキスト -->
                                             <div class="col-9">
                                                 <!-- タイトル -->
-                                                <p class="card-title mb-1 fw-bold">非核平和展</p>
+                                                <p class="card-title mb-1 fw-bold">とまと記念館講習会</p>
                                                 <!-- 内容 -->
                                                 <p class="card-text mb-0">
-                                               市は、すべての国の核兵器に反対し、非核三原則を堅持し、人類の平和のため努力することを決意して、「非核平和都市」を宣言しています。
-    そこで、広島と長崎に原爆が投下されてから80年の節目の年に、原爆被害の事実を伝え、非核平和を推進するために、非核平和展を拡大して開催します。 
+                                                とまと記念館で提供している人気メニューをバランスよく組み立て、自分で調理して食べるお得な料理教室です。
+メニューは、「焼きケチャップで美味しい鶏チリ」「中華風もやしサラダ」「とまとのスープ」「さつまいもプリン」「とまとジュース」です。
                                                 </p>
                                             </div>
                                         </div>
@@ -343,16 +171,16 @@ export default class extends Controller {
                                         <div class="row g-2">
                                             <!-- 左側の25%は写真 -->
                                             <div class="col-3">
-                                                <img src="https://min-chi.material.jp/mc/materials/background-c/art_museum/_art_museum_1.jpg" alt="企画展の写真" class="img-fluid rounded-3">
+                                                <img src="https://www.city.tokai.aichi.jp/_res/projects/default_project/_page_/001/010/284/gazou3.jpg" alt="企画展の写真" class="img-fluid rounded-3">
                                             </div>
     
                                             <!-- 右側の75%はテキスト -->
                                             <div class="col-9">
                                                 <!-- タイトル -->
-                                                <p class="card-title mb-1 fw-bold">非核平和展</p>
+                                                <p class="card-title mb-1 fw-bold">木之下晃メモリアル 公募写真展「寿齢讃歌」</p>
                                                 <!-- 内容 -->
                                                 <p class="card-text mb-0">
-                                                    本展では、喜多川歌麿、 歌川広重、葛飾北斎、歌川国芳らの人気絵師によって描かれた動物たちを中心に、 江戸中期から明治初期までの浮世絵 約100点を紹介します。 もし、兎や鼠が人のように暮らしていたら、腕に抱いた猫が話しかけてきたら、と想像を巡らしながら、 絵師も動物も 人気モノが勢揃いする浮世絵をお楽しみください
+                                                音楽写真家の第一人者・木之下晃氏のライフワークだった公募展「寿齢讃歌」を、東海市芸術劇場にて開催いたします。応募作品は、写真家の英伸三さんより講評をいただき、劇場内アートスペースに展示いたします。
                                                 </p>
                                             </div>
                                         </div>

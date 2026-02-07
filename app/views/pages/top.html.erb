@@ -45,21 +45,21 @@
                     sendBtn.addEventListener("click", (e) => {
                         // 空欄なら送信させない
                         if (!input.value.trim()) {
-                        e.preventDefault(); // フォーム送信を止める
-                        alert("メッセージを入力してください"); // 任意で注意
-                        return;
+                            e.preventDefault(); 
+                            alert("メッセージを入力してください"); 
+                            return;
                         }
 
                         form.submit();
                     });
 
-                    // 任意：空欄ならボタン非活性化
+                    // 空欄ならボタン非活性化
                     input.addEventListener("input", () => {
                         if (input.value.trim()) {
-                        sendBtn.style.opacity = "1";      // 有効化
+                        sendBtn.style.opacity = "1";      
                         sendBtn.style.pointerEvents = "auto";
                         } else {
-                        sendBtn.style.opacity = "0.5";    // 無効化っぽく
+                        sendBtn.style.opacity = "0.5";   
                         sendBtn.style.pointerEvents = "none";
                         }
                     });
