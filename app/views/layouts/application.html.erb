@@ -38,6 +38,10 @@
       <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" data-turbo-track="reload"></script>
     <% end %>
 
+    <% if controller_name == "ai"%>
+      <meta name="csrf-token" content="<%= form_authenticity_token %>">
+    <% end %>
+
     <!-- for map -->
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
